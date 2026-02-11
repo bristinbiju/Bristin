@@ -4,6 +4,7 @@ import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
+import Contact from "@/components/Contact";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
             <About />
             <Services />
             <Projects />
+            <Contact />
 
             {/* Simple Footer */}
             <footer className="relative z-10 w-full py-8 text-center text-gray-500 text-sm border-t border-white/5 bg-black/20 backdrop-blur-sm">
