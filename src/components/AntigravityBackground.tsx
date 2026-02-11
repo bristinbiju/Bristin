@@ -8,11 +8,14 @@ const AntigravityBackground = () => {
 
     useEffect(() => {
         // Generate random elements on client only to avoid hydration mismatch
-        const newElements = Array.from({ length: 15 }).map((_, i) => ({
+        const isMobile = window.innerWidth < 768
+        const count = isMobile ? 6 : 15 // Reduce count on mobile for performance
+
+        const newElements = Array.from({ length: count }).map((_, i) => ({
             id: i,
             x: Math.random() * 100,
             y: Math.random() * 100,
-            size: Math.random() * 300 + 50, // Large soft blobs
+            size: Math.random() * (isMobile ? 200 : 300) + 50, // Slightly smaller on mobile
             duration: Math.random() * 20 + 10,
             delay: Math.random() * 5
         }))
@@ -34,6 +37,7 @@ const AntigravityBackground = () => {
                         top: `${el.y}%`,
                         width: el.size,
                         height: el.size,
+                        willChange: "transform",
                     }}
                     animate={{
                         y: [0, -100, 0],
