@@ -162,15 +162,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {project.gallery && project.gallery.length > 0 ? (
                             project.gallery.map((img, i) => (
-                                <div key={i} className="relative aspect-[3/4] md:aspect-[4/5] w-full bg-white/5 rounded-xl overflow-hidden border border-white/10 group">
+                                <div key={i} className="relative w-full bg-white/5 rounded-xl overflow-hidden border border-white/10">
                                     <Image
                                         src={img}
                                         alt={`${project.title} gallery image ${i + 1}`}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        width={0}
+                                        height={0}
+                                        sizes="100vw"
+                                        className="w-full h-auto"
                                     />
-                                    {/* Overlay for aesthetic */}
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                                 </div>
                             ))
                         ) : (
