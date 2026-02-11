@@ -12,6 +12,7 @@ export interface Project {
     gallery: string[]; // 3-column gallery images
     link?: string;
     logo?: string; // Brand logo
+    logoBg?: string; // Custom background color for logo container
     color?: string; // Gradient color for placeholder
 }
 
@@ -141,7 +142,8 @@ export const projects: Project[] = [
             "/images/projects/devine-social/Pure. Natural. Divine.jpg",
             "/images/projects/devine-social/Your Health.jpg",
         ],
-        logo: "/images/projects/liverpool/Liverpool.png", // Using Liverpool logo as requested
+        logo: "/images/projects/devine-social/logo.png",
+        logoBg: "bg-white",
         color: "bg-gradient-to-br from-yellow-500 to-orange-600",
     },
 ];

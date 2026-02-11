@@ -115,7 +115,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
                     {/* Brand Logo (Top Right) */}
                     {project.logo && (
-                        <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-xl bg-white/5 border border-white/10 p-4 flex items-center justify-center overflow-hidden backdrop-blur-sm">
+                        <div className={`relative w-32 h-32 md:w-40 md:h-40 rounded-xl ${project.logoBg || "bg-white/5"} border border-white/10 p-4 flex items-center justify-center overflow-hidden backdrop-blur-sm`}>
                             <Image
                                 src={project.logo}
                                 alt={`${project.title} Logo`}
