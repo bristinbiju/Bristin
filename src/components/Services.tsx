@@ -24,13 +24,15 @@ const services = [
         title: "Digital & Social",
         description: "High-conversion ad creatives and social media kits to drive engagement.",
         icon: Smartphone,
-        color: "from-blue-400 to-cyan-500"
+        color: "from-blue-400 to-cyan-500",
+        image: "/images/services/digital_social.jpg"
     },
     {
         title: "Motion & AI",
         description: "Basic motion graphics and AI-enhanced concepting for modern visuals.",
         icon: Cpu,
-        color: "from-emerald-400 to-teal-600"
+        color: "from-emerald-400 to-teal-600",
+        image: "/images/services/motion_ai.jpg"
     }
 ];
 
