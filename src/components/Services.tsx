@@ -17,7 +17,8 @@ const services = [
         title: "Print & Editorial",
         description: "Large-format event signage, magazines, and brochures for physical impact.",
         icon: ShoppingBag, // Placeholder for print/merch
-        color: "from-pink-500 to-rose-600"
+        color: "from-pink-500 to-rose-600",
+        image: "/images/services/print_media.jpg"
     },
     {
         title: "Digital & Social",
