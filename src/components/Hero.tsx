@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
@@ -39,12 +40,12 @@ export default function Hero() {
                     transition={{ delay: 0.6 }}
                     className="flex gap-4 mt-8"
                 >
-                    <button className="group px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all flex items-center gap-2">
+                    <Link href="#work" className="group px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all flex items-center gap-2">
                         View Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="px-8 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-colors backdrop-blur-sm text-white">
+                    </Link>
+                    <Link href="#contact" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-colors backdrop-blur-sm text-white">
                         Contact Me
-                    </button>
+                    </Link>
                 </motion.div>
             </motion.div>
         </section>

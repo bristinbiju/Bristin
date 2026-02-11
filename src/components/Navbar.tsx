@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { useState, useEffect } from 'react'
-import LiquidSwitch from './LiquidSwitch'
+
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
@@ -39,10 +39,10 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-4">
-                <LiquidSwitch />
-                <button className="px-6 py-2 rounded-full border border-white/20 text-xs font-semibold hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm">
+                {/* Switch removed as per request */}
+                <Link href="#contact" className="px-6 py-2 rounded-full border border-white/20 text-xs font-semibold hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm">
                     Let's Talk
-                </button>
+                </Link>
             </div>
         </motion.nav>
     )
