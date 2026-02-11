@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: rgb(10 10 15);
+  --color-foreground: rgb(237 237 237);
+  --color-card: rgb(20 20 25);
+  --color-card-foreground: rgb(237 237 237);
+  --color-popover: rgb(10 10 15);
+  --color-popover-foreground: rgb(237 237 237);
+  --color-primary: rgb(99 102 241);
+  --color-primary-foreground: rgb(255 255 255);
+  --color-secondary: rgb(40 40 45);
+  --color-secondary-foreground: rgb(255 255 255);
+  --color-muted: rgb(153 153 153);
+  --color-muted-foreground: rgb(161 161 170);
+  --color-accent: rgb(79 70 229);
+  --color-accent-foreground: rgb(255 255 255);
+  --color-destructive: rgb(239 68 68);
+  --color-destructive-foreground: rgb(255 255 255);
+  --color-border: rgb(40 40 45);
+  --color-input: rgb(40 40 45);
+  --color-ring: rgb(99 102 241);
+
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-fade-in: fadeIn 0.5s ease-out;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Custom Utilities */
+@utility glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+}
+
+@utility glass-card {
+  @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500;
+}
+
+/* Base modifications */
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
