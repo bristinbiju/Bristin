@@ -43,7 +43,7 @@ export const projects: Project[] = [
             "/images/projects/liverpool/liverpool-06.png",
         ],
         link: "https://www.behance.net/gallery/218572583/World-Cancer-Day?share=1", // External link
-        logo: "/images/projects/liverpool/liverpool-01.png", // Using first image as logo placeholder for now
+        logo: "/images/projects/liverpool/Liverpool.png",
     },
     {
         slug: "project-alpha",
