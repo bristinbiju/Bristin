@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { TiltCard } from "./TiltCard";
-import { Github, ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -21,6 +21,7 @@ const projects = [
             "/images/projects/liverpool/liverpool-07.png",
             "/images/projects/liverpool/liverpool-08.png",
         ],
+        link: "https://www.behance.net/gallery/218572583/World-Cancer-Day?share=1",
     },
     {
         title: "Project Alpha",
@@ -124,12 +125,16 @@ function ProjectCard({ project, index, onImageClick }: { project: any, index: nu
                             {project.subtitle && <p className="text-xl text-gray-300 font-light">{project.subtitle}</p>}
                         </div>
                         <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0 delay-100 pointer-events-auto">
-                            <button className="p-3 bg-white/10 rounded-full hover:bg-white text-white hover:text-black backdrop-blur-md transition-all border border-white/20 hover:border-white">
-                                <Github className="w-5 h-5" />
-                            </button>
-                            <button className="p-3 bg-white/10 rounded-full hover:bg-white text-white hover:text-black backdrop-blur-md transition-all border border-white/20 hover:border-white">
-                                <ExternalLink className="w-5 h-5" />
-                            </button>
+                            {project.link && (
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-3 bg-white/10 rounded-full hover:bg-white text-white hover:text-black backdrop-blur-md transition-all border border-white/20 hover:border-white"
+                                >
+                                    <ExternalLink className="w-5 h-5" />
+                                </a>
+                            )}
                         </div>
                     </div>
                 </div>
