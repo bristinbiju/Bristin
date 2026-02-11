@@ -53,10 +53,10 @@ export const projects: Project[] = [
         description: "A strategic social media campaign for Cowary Farms, enhancing brand presence and community engagement through visually compelling content and storytelling. The project focused on highlighting sustainable farming practices and connecting with the audience on a personal level.",
         tools: ["Photoshop", "Instagram"], // Guessed tools based on social media context, user said 'keep this also as the previous updated card', maybe implying structure. I'll use typical social media tools.
         images: [
+            "/images/projects/cowary/Goat Farming.jpg",
             "/images/projects/cowary/Gvlobal stage!.jpg",
             "/images/projects/cowary/A Day on the Farm.jpg",
             "/images/projects/cowary/Beekeeping Training Flyer.jpg",
-            "/images/projects/cowary/Goat Farming.jpg",
             "/images/projects/cowary/Happy Easter.jpg",
         ],
         gallery: [
