@@ -19,7 +19,9 @@ export default function Home() {
 
             {/* Simple Footer */}
             <footer className="relative z-10 w-full py-8 text-center text-gray-500 text-sm border-t border-white/5 bg-black/20 backdrop-blur-sm">
-                <p>© {new Date().getFullYear()} Bristin Biju. Crafted with Next.js & Framer Motion.</p>
+                <p className="text-gray-500 text-sm">
+                    &copy; {new Date().getFullYear()} Bristin Biju.
+                </p>
             </footer>
         </main>
     );
