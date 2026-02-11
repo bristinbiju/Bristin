@@ -129,15 +129,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <div className="flex flex-col gap-8 justify-start">
                             <div className="flex flex-col items-start">
                                 <h3 className="text-xl font-bold mb-6">Tools Used</h3>
-                                <div className="flex flex-wrap gap-4">
+                                <div className="flex flex-wrap gap-3">
                                     {project.tools.map((tool, i) => (
-                                        <div key={i} className="group relative flex items-center justify-center p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors cursor-default" title={tool}>
-                                            <ToolIcon name={tool} />
-                                            {/* Tooltip on hover */}
-                                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                                                {tool}
-                                            </span>
-                                        </div>
+                                        <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+                                            {tool}
+                                        </span>
                                     ))}
                                 </div>
                             </div>

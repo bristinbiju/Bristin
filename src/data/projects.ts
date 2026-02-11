@@ -23,7 +23,7 @@ export const projects: Project[] = [
         subtitle: "Liverpool",
         category: "Campaign",
         description: "A comprehensive campaign for Liverpool's 'You Can' initiative, focusing on community empowerment and health awareness. The project involved creating a cohesive visual identity that resonates with the target audience, utilizing bold typography and emotive imagery.",
-        tools: ["Photoshop", "Illustrator", "Figma"],
+        tools: ["Photoshop", "Illustrator"],
         images: [
             "/images/projects/liverpool/liverpool-01.png",
             "/images/projects/liverpool/liverpool-02.png",
