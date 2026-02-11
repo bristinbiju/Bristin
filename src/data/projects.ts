@@ -51,7 +51,7 @@ export const projects: Project[] = [
         subtitle: "Social Media",
         category: "Social Media",
         description: "A strategic social media campaign for Cowary Farms, enhancing brand presence and community engagement through visually compelling content and storytelling. The project focused on highlighting sustainable farming practices and connecting with the audience on a personal level.",
-        tools: ["Photoshop", "Canva", "Instagram"], // Guessed tools based on social media context, user said 'keep this also as the previous updated card', maybe implying structure. I'll use typical social media tools.
+        tools: ["Photoshop", "Instagram"], // Guessed tools based on social media context, user said 'keep this also as the previous updated card', maybe implying structure. I'll use typical social media tools.
         images: [
             "/images/projects/cowary/Gvlobal stage!.jpg",
             "/images/projects/cowary/A Day on the Farm.jpg",
@@ -72,7 +72,6 @@ export const projects: Project[] = [
             "/images/projects/cowary/Gvlobal stage!.jpg",
             "/images/projects/cowary/Happy Easter.jpg",
             "/images/projects/cowary/Labour Day post.jpg",
-            "/images/projects/cowary/Let's Grow ToGether.jpg",
             "/images/projects/cowary/Meet Us in.jpg",
             "/images/projects/cowary/Ranchers Programme copy.jpg",
             "/images/projects/cowary/Woman Behind the Vision.jpg",
