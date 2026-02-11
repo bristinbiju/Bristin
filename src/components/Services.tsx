@@ -25,7 +25,7 @@ const services = [
         description: "High-conversion ad creatives and social media kits to drive engagement.",
         icon: Smartphone,
         color: "from-blue-400 to-cyan-500",
-        image: "/images/services/digital_social.jpg"
+        image: "/images/services/digital_social_update.jpg"
     },
     {
         title: "Motion & AI",
