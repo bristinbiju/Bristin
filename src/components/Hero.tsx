@@ -55,7 +55,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[500px] h-[500px] pointer-events-none -z-10 md:z-0 mix-blend-lighten opacity-60 md:opacity-100"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[500px] h-[500px] pointer-events-none -z-10 md:z-0 mix-blend-lighten opacity-30 blur-3xl"
             >
                 <div className="relative w-full h-full">
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/80 z-10" />
