@@ -178,14 +178,33 @@ export const projects: Project[] = [
         color: "bg-gradient-to-br from-slate-700 to-slate-900", // Corporate/professional theme
     },
     {
-        slug: "project-6",
-        title: "Future Work",
-        category: "Development",
-        description: "A deep dive into next-generation web technologies and performance optimization.",
-        tools: ["Next.js", "Rust"],
-        images: [],
-        gallery: [],
-        color: "bg-gradient-to-br from-blue-500 to-teal-400",
+        slug: "javvis-designs",
+        title: "Javvis Designs",
+        category: "Branding",
+        description: "A bold and modern branding project for Javvis Designs, featuring a clean visual identity and a cohesive design system. The project encompasses logo design, brand collateral, and digital assets that reflect the brand's innovative approach.",
+        tools: ["Photoshop", "Illustrator"],
+        images: [
+            "/images/projects/javvis-designs/01.jpg",
+            "/images/projects/javvis-designs/02.jpg",
+            "/images/projects/javvis-designs/03.jpg",
+            "/images/projects/javvis-designs/04.jpg",
+            "/images/projects/javvis-designs/05.jpg",
+        ],
+        gallery: [
+            "/images/projects/javvis-designs/01.jpg",
+            "/images/projects/javvis-designs/02.jpg",
+            "/images/projects/javvis-designs/03.jpg",
+            "/images/projects/javvis-designs/04.jpg",
+            "/images/projects/javvis-designs/05.jpg",
+            "/images/projects/javvis-designs/06.jpg",
+            "/images/projects/javvis-designs/07.jpg",
+            "/images/projects/javvis-designs/08.jpg",
+            "/images/projects/javvis-designs/09.jpg",
+            "/images/projects/javvis-designs/Artboard 1.jpg",
+        ],
+        logo: "/images/projects/javvis-designs/logo.png",
+        logoBg: "bg-white", // Assuming it might need white bg like others if it's a dark logo, or remove if not needed. User didn't specify, but safer to add if it's a dark logo. I'll stick to user request "give all funtion property" which suggests full features.
+        color: "bg-gradient-to-br from-blue-600 to-cyan-500", // Modern tech blue theme
     },
     {
         slug: "project-7",
