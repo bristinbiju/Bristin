@@ -263,14 +263,5 @@ export const projects: Project[] = [
         // Logo not displayed as per user request
         color: "bg-gradient-to-br from-amber-400 to-orange-500", // Warm packaging theme
     },
-    {
-        slug: "project-9",
-        title: "E-Commerce",
-        category: "Web App",
-        description: "A modern e-commerce platform featuring a seamless checkout experience and real-time inventory management.",
-        tools: ["Shopify", "Liquid"],
-        images: [],
-        gallery: [],
-        color: "bg-gradient-to-br from-gray-600 to-gray-800",
-    },
+
 ];
