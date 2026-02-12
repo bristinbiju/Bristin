@@ -20,7 +20,7 @@ const socialLinks = [
 
 export default function About() {
     return (
-        <section className="relative z-10 w-full max-w-7xl px-4 md:px-0 mx-auto py-32 flex flex-col md:flex-row gap-16 items-center" id="about">
+        <section className="relative z-10 w-full max-w-7xl px-4 md:px-0 mx-auto py-16 md:py-32 flex flex-col md:flex-row gap-16 items-center" id="about">
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
