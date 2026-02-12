@@ -12,7 +12,7 @@ const tools = [
 
 const socialLinks = [
     { icon: Mail, url: "mailto:bristinbiju123@gmail.com" },
-    { icon: Linkedin, url: "https://www.linkedin.com/in/bristinbiju/" }, // Assuming standard URL pattern or waiting for research, but user didn't give LI URL, just said research. I'll use a placeholder or search. I'll put a generic search if I can't find it. Wait, user provided Behance and Insta. I'll use those.
+    { icon: Linkedin, url: "https://www.linkedin.com/in/bristin-biju-832a4a1a6/" },
     { icon: Instagram, url: "https://www.instagram.com/bristinbiju/" },
     // Behance icon is not in Lucide by default usually (or maybe it is? It might be 'Monitor' or 'Globe' as placeholder if not).
     // I'll check if I can use a generic 'Link' or 'Globe' for Behance if specific icon missing.
