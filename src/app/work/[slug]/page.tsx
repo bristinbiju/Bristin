@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
+import ProjectNavigation from "@/components/ProjectNavigation";
 
 // Simple SVG icons for tools
 function ToolIcon({ name }: { name: string }) {
@@ -197,6 +198,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     </div>
                 </div>
             </div>
+
+            {/* Navigation Buttons */}
+            <ProjectNavigation />
         </main>
     );
 }
