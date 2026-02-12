@@ -21,8 +21,8 @@ export const projects: Project[] = [
     {
         slug: "you-can",
         title: "You Can",
-        subtitle: "Liverpool",
-        category: "Campaign",
+        subtitle: "Campaign",
+        category: "",
         description: "A comprehensive campaign for Liverpool's 'You Can' initiative, focusing on community empowerment and health awareness. The project involved creating a cohesive visual identity that resonates with the target audience, utilizing bold typography and emotive imagery.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -50,7 +50,7 @@ export const projects: Project[] = [
         slug: "cowary-social",
         title: "Cowary Farms",
         subtitle: "Social Media",
-        category: "Social Media",
+        category: "",
         description: "A strategic social media campaign for Cowary Farms, enhancing brand presence and community engagement through visually compelling content and storytelling. The project focused on highlighting sustainable farming practices and connecting with the audience on a personal level.",
         tools: ["Photoshop", "Instagram"], // Guessed tools based on social media context, user said 'keep this also as the previous updated card', maybe implying structure. I'll use typical social media tools.
         images: [
@@ -84,7 +84,7 @@ export const projects: Project[] = [
         slug: "liverpool-social",
         title: "Liverpool",
         subtitle: "Social Media",
-        category: "Social Media",
+        category: "",
         description: "A series of engaging social media posters for Liverpool, designed to raise awareness on various health topics including cancer, fertility, and general well-being. The designs utilize consistent branding and clear messaging to effectively communicate with the community.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -118,7 +118,7 @@ export const projects: Project[] = [
         slug: "devine-social",
         title: "Devine",
         subtitle: "Social Media",
-        category: "Social Media",
+        category: "",
         description: "A visually rich social media campaign for Devine, focusing on the natural and premium quality of their products. The project involved creating a series of posts that highlight the brand's commitment to purity and health, using appetizing imagery and elegant design elements.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -148,8 +148,9 @@ export const projects: Project[] = [
     },
     {
         slug: "gba-designs",
-        title: "GBA Designs",
-        category: "Branding",
+        title: "GBA",
+        subtitle: "Branding",
+        category: "",
         description: "A comprehensive branding and visual identity project for GBA Designs (Global Business Alliance), focusing on professional corporate aesthetics and impactful marketing materials. The project includes logo lockups, event branding for AIM Congress, and social media assets.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -179,8 +180,9 @@ export const projects: Project[] = [
     },
     {
         slug: "javvis-designs",
-        title: "Javvis Designs",
-        category: "Branding",
+        title: "Javvis",
+        subtitle: "Branding",
+        category: "",
         description: "A bold and modern branding project for Javvis Designs, featuring a clean visual identity and a cohesive design system. The project encompasses logo design, brand collateral, and digital assets that reflect the brand's innovative approach.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -208,8 +210,9 @@ export const projects: Project[] = [
     },
     {
         slug: "joyce4life-designs",
-        title: "Joyce4Life Designs",
-        category: "Branding",
+        title: "Joyce4Life",
+        subtitle: "Branding",
+        category: "",
         description: "A refined and elegant branding project for Joyce4Life, emphasizing sophisticated design and visual harmony. The scope includes logo development, brand guidelines, and a suite of marketing materials tailored to the brand's unique identity.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -240,8 +243,9 @@ export const projects: Project[] = [
     },
     {
         slug: "forti-designs",
-        title: "Forti Designs",
-        category: "Packaging",
+        title: "Forti",
+        subtitle: "Packaging",
+        category: "",
         description: "A creative packaging design project for Forti, focusing on functional yet aesthetically pleasing solutions. The designs prioritize shelf appeal and brand consistency, ensuring the product stands out in a competitive market.",
         tools: ["Photoshop", "Illustrator"],
         images: [
@@ -263,5 +267,4 @@ export const projects: Project[] = [
         // Logo not displayed as per user request
         color: "bg-gradient-to-br from-amber-400 to-orange-500", // Warm packaging theme
     },
-
 ];

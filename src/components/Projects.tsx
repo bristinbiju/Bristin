@@ -97,7 +97,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
                 <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-20 pointer-events-none">
                     <div className="flex justify-between items-end">
                         <div>
-                            <p className="text-sm font-mono text-purple-300 mb-2 tracking-widest uppercase">{project.category}</p>
+                            {project.category && <p className="text-sm font-mono text-purple-300 mb-2 tracking-widest uppercase">{project.category}</p>}
                             <h3 className="text-4xl font-bold text-white mb-1">{project.title}</h3>
                             {project.subtitle && <p className="text-xl text-gray-300 font-light">{project.subtitle}</p>}
                         </div>
