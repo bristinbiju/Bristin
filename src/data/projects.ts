@@ -239,14 +239,29 @@ export const projects: Project[] = [
         color: "bg-gradient-to-br from-pink-500 to-rose-500", // Elegant pink/rose theme
     },
     {
-        slug: "project-8",
-        title: "Mobile App",
-        category: "Mobile",
-        description: "A cross-platform mobile application designed to simplify daily tasks and improve productivity.",
-        tools: ["React Native", "Expo"],
-        images: [],
-        gallery: [],
-        color: "bg-gradient-to-br from-amber-400 to-orange-500",
+        slug: "forti-designs",
+        title: "Forti Designs",
+        category: "Packaging",
+        description: "A creative packaging design project for Forti, focusing on functional yet aesthetically pleasing solutions. The designs prioritize shelf appeal and brand consistency, ensuring the product stands out in a competitive market.",
+        tools: ["Photoshop", "Illustrator"],
+        images: [
+            "/images/projects/forti-designs/Pakage Design 02.jpg",
+            "/images/projects/forti-designs/Corn Porridge Pakage 01.jpg",
+            "/images/projects/forti-designs/Fufu 01.jpg",
+            "/images/projects/forti-designs/Packaging Mockup.jpg",
+            "/images/projects/forti-designs/Packaging Mockup3.jpg",
+        ],
+        gallery: [
+            "/images/projects/forti-designs/Corn Porridge Pakage 01.jpg",
+            "/images/projects/forti-designs/Fufu 01.jpg",
+            "/images/projects/forti-designs/Packaging Mockup.jpg",
+            "/images/projects/forti-designs/Packaging Mockup3.jpg",
+            "/images/projects/forti-designs/Pakage Design 02.jpg",
+            "/images/projects/forti-designs/Psd_1.jpg",
+            "/images/projects/forti-designs/Psd_4.jpg",
+        ],
+        // Logo not displayed as per user request
+        color: "bg-gradient-to-br from-amber-400 to-orange-500", // Warm packaging theme
     },
     {
         slug: "project-9",
