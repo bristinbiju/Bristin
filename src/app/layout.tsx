@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     title: 'Antigravity Portfolio',
     description: 'A premium portfolio with zero-gravity aesthetics',
+    icons: {
+        icon: '/icon',
+    },
 }
 
 export default function RootLayout({
