@@ -12,7 +12,7 @@ const tools = [
 
 const socialLinks = [
     { icon: Mail, url: "mailto:bristinbiju123@gmail.com" },
-    { icon: Linkedin, url: "https://www.linkedin.com/in/bristin-biju-832a4a1a6/" },
+    { icon: Linkedin, url: "https://www.linkedin.com/in/bristin-biju-832a4a1a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
     { icon: Instagram, url: "https://www.instagram.com/bristinbiju/" },
     // Behance icon is not in Lucide by default usually (or maybe it is? It might be 'Monitor' or 'Globe' as placeholder if not).
     // I'll check if I can use a generic 'Link' or 'Globe' for Behance if specific icon missing.
