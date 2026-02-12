@@ -89,6 +89,7 @@ export const projects: Project[] = [
         description: "A series of engaging social media posters for Liverpool, designed to raise awareness on various health topics including cancer, fertility, and general well-being. The designs utilize consistent branding and clear messaging to effectively communicate with the community.",
         tools: ["Photoshop", "Illustrator"],
         images: [
+            "/images/projects/liverpool-social/Liverpool.jpg",
             "/images/projects/liverpool-social/Caring.jpg",
             "/images/projects/liverpool-social/Annual Health Check 02.jpg",
             "/images/projects/liverpool-social/Bone Cancer Awareness_.png",
