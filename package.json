@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
+    "@vercel/analytics": "^1.6.1",
     "clsx": "latest",
     "framer-motion": "latest",
     "lucide-react": "latest",
