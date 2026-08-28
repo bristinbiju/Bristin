@@ -9,7 +9,7 @@ const ContactSection: React.FC = () => {
   const tc = t.contact;
 
   return (
-    <footer id="contact" className="relative bg-[#0C0C0C] overflow-hidden">
+    <footer id="contact" className="relative z-40 bg-[#0C0C0C] overflow-hidden">
       {/* Brand-color ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -21,9 +21,9 @@ const ContactSection: React.FC = () => {
       />
 
       {/* Main contact area */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-20 w-full">
+      <div className="relative z-10 flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 pt-32 sm:pt-40 md:pt-52 lg:pt-64 pb-20 sm:pb-28 md:pb-36 w-full">
         <FadeIn delay={0} y={40}>
-          <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-[clamp(2.5rem,10vw,130px)] mb-6 sm:mb-8">
+          <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-[clamp(2.5rem,9vw,110px)] mb-8 sm:mb-10 md:mb-12">
             {tc.headline}
           </h2>
         </FadeIn>
