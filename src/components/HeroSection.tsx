@@ -10,6 +10,10 @@ const HeroSection: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
 
+  // Split the greeting on \n — enables two-line centred layout for FR
+  const greetingLines = t.hero.greeting.split('\n');
+  const isMultiLine = greetingLines.length > 1;
+
   return (
     <section className="relative h-screen flex flex-col overflow-x-clip w-full" aria-label="Hero">
       {/* Navbar */}
@@ -45,9 +49,19 @@ const HeroSection: React.FC = () => {
         {/* H1 Heading */}
         <div className="overflow-hidden w-full">
           <FadeIn delay={0.15} y={40} className="w-full">
-            <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]">
-              {t.hero.greeting}
-            </h1>
+            {isMultiLine ? (
+              /* FR — two-line centred layout */
+              <h1 className="hero-heading font-black uppercase tracking-tight leading-none w-full text-center text-[10vw] sm:text-[11vw] md:text-[12vw] lg:text-[13vw]">
+                {greetingLines.map((line, idx) => (
+                  <span key={idx} className="block whitespace-nowrap">{line}</span>
+                ))}
+              </h1>
+            ) : (
+              /* EN — single-line full-width layout (unchanged) */
+              <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]">
+                {t.hero.greeting}
+              </h1>
+            )}
           </FadeIn>
         </div>
 

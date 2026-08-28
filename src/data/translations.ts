@@ -70,7 +70,7 @@ export const translations = {
       contact: "Contact"
     },
     hero: {
-      greeting: "Bonjour, je suis Bristin",
+      greeting: "Bonjour\nje suis Bristin",
       description: "un graphiste multidisciplinaire & stratège de marque faisant le pont entre la vision créative et la performance sur le marché"
     },
     contactButton: {
