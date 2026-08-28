@@ -1,5 +1,5 @@
 import React, { type ElementType } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -20,8 +20,14 @@ const FadeIn: React.FC<FadeInProps> = ({
   className = '',
   as = 'div',
 }) => {
-  // Use motion.create for dynamic element types
+  const shouldReduceMotion = useReducedMotion();
   const MotionComponent = motion.create(as as any);
+
+  // If reduced motion is preferred, render children without any animation
+  if (shouldReduceMotion) {
+    const Tag = as as ElementType;
+    return <Tag className={className}>{children}</Tag>;
+  }
 
   return (
     <MotionComponent

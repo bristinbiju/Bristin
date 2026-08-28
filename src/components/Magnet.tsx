@@ -21,7 +21,15 @@ const Magnet: React.FC<MagnetProps> = ({
   const [isActive, setIsActive] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
+  // Respect prefers-reduced-motion
+  const prefersReducedMotion =
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false;
+
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!ref.current) return;
       
@@ -51,7 +59,7 @@ const Magnet: React.FC<MagnetProps> = ({
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [padding, strength]);
+  }, [padding, strength, prefersReducedMotion]);
 
   return (
     <div
@@ -59,8 +67,8 @@ const Magnet: React.FC<MagnetProps> = ({
       className={className}
       style={{
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-        transition: isActive ? activeTransition : inactiveTransition,
-        willChange: 'transform',
+        transition: prefersReducedMotion ? 'none' : (isActive ? activeTransition : inactiveTransition),
+        willChange: prefersReducedMotion ? 'auto' : 'transform',
       }}
     >
       {children}

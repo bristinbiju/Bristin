@@ -3,7 +3,7 @@ export const translations = {
     nav: {
       about: "About",
       services: "Services",
-      projects: "Projects",
+      projects: "Work",
       contact: "Contact"
     },
     hero: {
@@ -11,7 +11,7 @@ export const translations = {
       description: "a multidisciplinary graphic designer & brand strategist bridging the gap between creative vision and market performance"
     },
     contactButton: {
-      text: "Contact Me"
+      text: "Let's Talk"
     },
     about: {
       title: "About me",
@@ -43,7 +43,7 @@ export const translations = {
       ]
     },
     projects: {
-      title: "Projects",
+      title: "Work",
       liveProject: "Live Project",
       categories: {
         campaign: "Campaign",
@@ -51,6 +51,12 @@ export const translations = {
         branding: "Branding",
         packaging: "Packaging"
       }
+    },
+    contact: {
+      headline: "Let's work together",
+      subtext: "Available for brand identity, campaigns, and digital design projects.",
+      emailLabel: "bristinbiju123@gmail.com",
+      cta: "Email Me"
     },
     footer: {
       copyright: "Bristin Biju. All rights reserved."
@@ -68,7 +74,7 @@ export const translations = {
       description: "un graphiste multidisciplinaire & stratège de marque faisant le pont entre la vision créative et la performance sur le marché"
     },
     contactButton: {
-      text: "Me contacter"
+      text: "Discutons"
     },
     about: {
       title: "À propos",
@@ -95,7 +101,7 @@ export const translations = {
         },
         {
           name: 'UI/UX & Digital',
-          desc: 'Conception d\'expériences numériques épurées et modernes, axées sur la conversion, en utilisant Figma et Framer.'
+          desc: "Conception d'expériences numériques épurées et modernes, axées sur la conversion, en utilisant Figma et Framer."
         }
       ]
     },
@@ -108,6 +114,12 @@ export const translations = {
         branding: "Identité de Marque",
         packaging: "Packaging"
       }
+    },
+    contact: {
+      headline: "Travaillons ensemble",
+      subtext: "Disponible pour des projets d'identité de marque, de campagnes et de design digital.",
+      emailLabel: "bristinbiju123@gmail.com",
+      cta: "M'écrire"
     },
     footer: {
       copyright: "Bristin Biju. Tous droits réservés."

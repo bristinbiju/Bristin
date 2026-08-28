@@ -14,6 +14,18 @@
   .main-wrapper {
     @apply bg-[#0C0C0C] text-[#D7E2EA] font-sans m-0 p-0 box-border;
   }
+
+  /* Keyboard focus ring — brand magenta, visible everywhere */
+  :focus-visible {
+    outline: 2px solid #B600A8;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Anchor offset so nav doesn't clip section headings */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
 }
 
 @layer utilities {
@@ -25,3 +37,16 @@
     color: transparent;
   }
 }
+
+/* Global reduced-motion override — respects OS preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

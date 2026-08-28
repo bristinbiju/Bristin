@@ -18,16 +18,13 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, range, targetScale, onOpenLightbox }) => {
-  const containerRef = useRef(null);
-  
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div 
-      ref={containerRef}
+    <div
       className="h-[85vh] flex items-center justify-center sticky top-24 md:top-32 w-full"
     >
-      <motion.div 
+      <motion.div
         style={{ scale, top: `calc(${index * 28}px)` }}
         className="relative flex flex-col w-full max-w-6xl mx-auto rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8 transform-gpu origin-top"
       >
@@ -53,49 +50,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, ran
         <div className="flex flex-col md:flex-row w-full gap-4 flex-1">
           {/* Left Column (40%) */}
           <div className="flex flex-col gap-4 w-full md:w-[40%]">
-            <div 
+            <div
               className="relative w-full group cursor-pointer overflow-hidden rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
               style={{ height: 'clamp(130px, 16vw, 230px)' }}
               onClick={() => onOpenLightbox(project.gallery, 0)}
             >
-              <img 
-                src={project.images.leftTop} 
-                alt={`${project.name} preview 1`}
+              <img
+                src={project.images.leftTop}
+                alt={`${project.name} — ${project.category} design work, image 1`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <Search className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={32} />
+                <Search className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={32} aria-hidden="true" />
               </div>
             </div>
-            
-            <div 
+
+            <div
               className="relative w-full group cursor-pointer overflow-hidden rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
               style={{ height: 'clamp(160px, 22vw, 340px)' }}
               onClick={() => onOpenLightbox(project.gallery, 1)}
             >
-              <img 
-                src={project.images.leftBottom} 
-                alt={`${project.name} preview 2`}
+              <img
+                src={project.images.leftBottom}
+                alt={`${project.name} — ${project.category} design work, image 2`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <Search className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={32} />
+                <Search className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={32} aria-hidden="true" />
               </div>
             </div>
           </div>
-          
+
           {/* Right Column (60%) */}
-          <div 
+          <div
             className="w-full md:w-[60%] h-full relative group cursor-pointer overflow-hidden rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
             onClick={() => onOpenLightbox(project.gallery, 2)}
           >
-            <img 
-              src={project.images.right} 
-              alt={`${project.name} preview main`}
+            <img
+              src={project.images.right}
+              alt={`${project.name} — ${project.category} design work, featured`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full min-h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-              <Search className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={48} />
+              <Search className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={48} aria-hidden="true" />
             </div>
           </div>
         </div>
@@ -103,6 +106,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, ran
     </div>
   );
 };
+
 
 const ProjectsSection: React.FC = () => {
   const { language } = useLanguage();

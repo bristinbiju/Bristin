@@ -1,31 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const gifs = [
-  "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
-  "https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif",
-  "https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-  "https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif",
-  "https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif",
-  "https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif",
-  "https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif",
-  "https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif",
-  "https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif",
-  "https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif",
-  "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif",
-  "https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif",
-  "https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif",
-  "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-  "https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif",
-  "https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif",
-  "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-  "https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif",
-  "https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif"
+// Bristin's own project images — replacing the third-party motionsites.ai GIFs
+const projectImages: { src: string; alt: string }[] = [
+  { src: '/images/projects/liverpool/liverpool-01.png', alt: 'You Can — World Cancer Day campaign' },
+  { src: '/images/projects/liverpool/liverpool-02.png', alt: 'You Can — World Cancer Day campaign spread' },
+  { src: '/images/projects/liverpool/liverpool-05.png', alt: 'You Can — campaign poster design' },
+  { src: '/images/projects/cowary/Gvlobal stage!.jpg', alt: 'Cowary Farms — social media design' },
+  { src: '/images/projects/cowary/Goat Farming.jpg', alt: 'Cowary Farms — goat farming post' },
+  { src: '/images/projects/cowary/A Day on the Farm.jpg', alt: 'Cowary Farms — a day on the farm post' },
+  { src: '/images/projects/liverpool-social/Annual Health Check 02.jpg', alt: 'Liverpool — annual health check post' },
+  { src: '/images/projects/liverpool-social/Healthy Heart.jpg', alt: 'Liverpool — healthy heart awareness post' },
+  { src: '/images/projects/liverpool-social/World Brain Day.png', alt: 'Liverpool — World Brain Day post' },
+  { src: '/images/projects/devine-social/Pure. Natural. Divine.jpg', alt: 'Devine — pure natural divine product post' },
+  { src: '/images/projects/devine-social/Your Health.jpg', alt: 'Devine — your health social post' },
+  { src: '/images/projects/gba-designs/01.jpg', alt: 'GBA — brand identity design' },
+  { src: '/images/projects/gba-designs/02.jpg', alt: 'GBA — brand identity application' },
+  { src: '/images/projects/gba-designs/AIM Congress 2025 01.jpg', alt: 'GBA — AIM Congress 2025 design' },
+  { src: '/images/projects/javvis-designs/01.jpg', alt: 'Javvis — brand identity' },
+  { src: '/images/projects/javvis-designs/03.jpg', alt: 'Javvis — brand identity mockup' },
+  { src: '/images/projects/javvis-designs/Artboard 1.jpg', alt: 'Javvis — brand system overview' },
+  { src: '/images/projects/joyce4life-designs/01.jpg', alt: 'Joyce4Life — brand identity' },
+  { src: '/images/projects/joyce4life-designs/03.jpg', alt: 'Joyce4Life — brand applications' },
+  { src: '/images/projects/forti-designs/Fufu 01.jpg', alt: 'Forti — packaging design' },
+  { src: '/images/projects/forti-designs/Pakage Design 02.jpg', alt: 'Forti — package design mockup' },
+  { src: '/images/projects/forti-designs/Packaging Mockup.jpg', alt: 'Forti — packaging mockup presentation' },
 ];
 
-const row1Original = gifs.slice(0, 11);
-const row2Original = gifs.slice(11);
+const row1Original = projectImages.slice(0, 11);
+const row2Original = projectImages.slice(11);
 
 // Tripled arrays for seamless scrolling illusion
 const row1 = [...row1Original, ...row1Original, ...row1Original];
@@ -35,11 +37,19 @@ const MarqueeSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [offset, setOffset] = useState(0);
 
+  // Respect prefers-reduced-motion
+  const prefersReducedMotion =
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false;
+
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const sectionTop = sectionRef.current.offsetTop;
-      
+
       // Calculate offset based on scroll position relative to the section
       const calculatedOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
       setOffset(calculatedOffset);
@@ -52,44 +62,46 @@ const MarqueeSection: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
-    <section ref={sectionRef} className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden w-full flex flex-col gap-3">
+    <section ref={sectionRef} className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden w-full flex flex-col gap-3" aria-label="Portfolio work showcase">
       {/* Row 1 - Moves RIGHT */}
-      <div 
+      <div
         className="flex gap-3 whitespace-nowrap min-w-max"
-        style={{ 
-          transform: `translate3d(${offset - 200}px, 0, 0)`,
-          willChange: 'transform'
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(${offset - 200}px, 0, 0)`,
+          willChange: prefersReducedMotion ? 'auto' : 'transform',
         }}
       >
-        {row1.map((src, idx) => (
-          <img 
-            key={`r1-${idx}`} 
-            src={src} 
-            loading="lazy" 
-            alt="Portfolio preview" 
-            className="w-[420px] h-[270px] rounded-2xl object-cover shrink-0" 
+        {row1.map((item, idx) => (
+          <img
+            key={`r1-${idx}`}
+            src={item.src}
+            loading="lazy"
+            decoding="async"
+            alt={item.alt}
+            className="w-[420px] h-[270px] rounded-2xl object-cover shrink-0"
           />
         ))}
       </div>
 
       {/* Row 2 - Moves LEFT */}
-      <div 
+      <div
         className="flex gap-3 whitespace-nowrap min-w-max"
-        style={{ 
-          transform: `translate3d(${-(offset - 200)}px, 0, 0)`,
-          willChange: 'transform'
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(${-(offset - 200)}px, 0, 0)`,
+          willChange: prefersReducedMotion ? 'auto' : 'transform',
         }}
       >
-        {row2.map((src, idx) => (
-          <img 
-            key={`r2-${idx}`} 
-            src={src} 
-            loading="lazy" 
-            alt="Portfolio preview" 
-            className="w-[420px] h-[270px] rounded-2xl object-cover shrink-0" 
+        {row2.map((item, idx) => (
+          <img
+            key={`r2-${idx}`}
+            src={item.src}
+            loading="lazy"
+            decoding="async"
+            alt={item.alt}
+            className="w-[420px] h-[270px] rounded-2xl object-cover shrink-0"
           />
         ))}
       </div>
