@@ -65,9 +65,6 @@ const ContactSection: React.FC = () => {
           </a>
         </FadeIn>
 
-        {/* Divider */}
-        <div className="w-full max-w-4xl h-px bg-[#D7E2EA]/10 mb-10 sm:mb-12" />
-
         {/* Social links */}
         <FadeIn delay={0.35} y={10}>
           <div className="flex gap-6 items-center mb-8">
@@ -112,11 +109,6 @@ const ContactSection: React.FC = () => {
             </a>
           </div>
         </FadeIn>
-
-        {/* Copyright */}
-        <p className="text-xs sm:text-sm opacity-30 uppercase tracking-widest font-light text-center px-4">
-          © {new Date().getFullYear()} {t.footer.copyright}
-        </p>
       </div>
     </footer>
   );
