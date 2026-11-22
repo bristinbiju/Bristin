@@ -58,6 +58,7 @@ EN/FR text lives in `src/data/translations.ts`.
    your artwork, all checked for WCAG AA.
 
 ## Decisions needed from you
-- **Accent:** A (Ribbon Green), B (Harvest Gold) or C (Signal Red).
+- ~~**Accent**~~ **Decided:** A, Ribbon Green: `#31D57C` (dark), `#0E7A43`
+  (light sections), with `#73E0E3` as a sparing support colour.
 - **Project names:** "Devine" or "Divine Favour"? "Javvis" or "Javvy's"?
 - **Fonts:** keep Syne + Be Vietnam Pro, or try alternatives?
