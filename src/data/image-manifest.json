@@ -1,0 +1,434 @@
+{
+ "/images/about/avatar": {
+  "w": 1214,
+  "h": 1295
+ },
+ "/images/about/photo": {
+  "w": 1536,
+  "h": 1024
+ },
+ "/images/projects/cowary-farms/02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/a-day-on-the-farm": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/artboard-1-1": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/artboard-2": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/artboard-4": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/artboard-5": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/beekeeping-training-flyer": {
+  "w": 1600,
+  "h": 2226
+ },
+ "/images/projects/cowary-farms/cowary": {
+  "w": 1535,
+  "h": 698
+ },
+ "/images/projects/cowary-farms/easter-begins-at-the-roots": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/global-stage": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/goat-farming": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/happy-easter": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/labour-day-post": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/lets-grow-together": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/logo": {
+  "w": 1600,
+  "h": 1636
+ },
+ "/images/projects/cowary-farms/meet-us-in": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/ranchers-programme": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/cowary-farms/woman-behind-the-vision": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/04-02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/a-super-crop": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/carousel-1-01": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/carousel-1-02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/carousel-1-03": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/carousel-post-why-cassava-06": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/carousel-post-why-cassava-07": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/cookies-recipe-01": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/easter-poster": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/fb-cover": {
+  "w": 1600,
+  "h": 702
+ },
+ "/images/projects/devine/labour-day": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/logo": {
+  "w": 1600,
+  "h": 949
+ },
+ "/images/projects/devine/pure-natural-divine": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/devine/your-health": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/forti/06": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/cassava-starch-red": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/corn-porridge-package-01": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/fufu-01": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/logo": {
+  "w": 1600,
+  "h": 953
+ },
+ "/images/projects/forti/package-design-02": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/packaging-mockup": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/packaging-mockup3": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/psd-1": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/forti/psd-4": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/projects/gba/01": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/03": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/04": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/05": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/06": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/07": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/08": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/aim-congress-2025-01": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/aim-congress-2025-04": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/aim-congress-2025-05": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/aim-congress-2025-06": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/artboard-5": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/gba/logo": {
+  "w": 1600,
+  "h": 855
+ },
+ "/images/projects/javvis/01": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/03": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/04": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/05": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/06": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/07": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/08": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/09": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/artboard-1": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/javvis/logo": {
+  "w": 1600,
+  "h": 638
+ },
+ "/images/projects/joyce4life/01": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/03": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/04": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/05": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/06": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/07": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/08": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/09": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/10": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/11": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/12": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/artboard-1": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/joyce4life/logo": {
+  "w": 1244,
+  "h": 2523
+ },
+ "/images/projects/liverpool/annual-health-check-02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/bone-cancer-awareness": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/brain-facts": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/caring": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/easter": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/fertility-care-and-support02": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/healthy-heart": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/heat-exhaustion-hits-fast": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/ivf": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/liverpool": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/logo": {
+  "w": 1600,
+  "h": 1624
+ },
+ "/images/projects/liverpool/next-big-leap": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/webinar-02": {
+  "w": 1600,
+  "h": 1600
+ },
+ "/images/projects/liverpool/webinar02-03-03": {
+  "w": 1600,
+  "h": 1600
+ },
+ "/images/projects/liverpool/world-brain-day": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/world-cancer-day04": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/liverpool/your-bones-peak": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/projects/you-can/you-can-01": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-02": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-03": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-04": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-05": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-06": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-07": {
+  "w": 1080,
+  "h": 1920
+ },
+ "/images/projects/you-can/you-can-08": {
+  "w": 1080,
+  "h": 1920
+ }
+}

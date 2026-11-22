@@ -6,6 +6,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 import { filledList, isFilled } from '../../data/content';
 import type { CategoryKey, Project } from '../../data/projects';
+import Img from '../site/Img';
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{children}</p>
@@ -24,11 +25,10 @@ function FeatureCard({ project, large }: { project: Project; large: boolean }) {
   return (
     <Link to={`/work/${project.slug}`} className="group block">
       <div className="overflow-hidden rounded-card bg-surface-raised">
-        <img
+        <Img
           src={project.cover}
           alt={`${project.name}: ${project.category}`}
-          loading="lazy"
-          decoding="async"
+          sizes={large ? '(min-width: 1200px) 1120px, 100vw' : '(min-width: 768px) 50vw, 100vw'}
           className={`w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-[1.03] motion-reduce:transition-none ${
             large ? 'aspect-[4/3] md:aspect-[16/9]' : 'aspect-[4/3]'
           }`}
@@ -124,11 +124,10 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
             <li key={p.slug}>
               <Link to={`/work/${p.slug}`} className="group block">
                 <div className="overflow-hidden rounded-card bg-surface-raised">
-                  <img
+                  <Img
                     src={p.cover}
                     alt=""
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                     className="aspect-square w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-[1.04] motion-reduce:transition-none"
                   />
                 </div>

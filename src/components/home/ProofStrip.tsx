@@ -1,12 +1,15 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 import type { Project } from '../../data/projects';
+import Img from '../site/Img';
 
 /** Client logos (shown as one-colour marks so mixed light/dark logos read evenly) + real facts. */
 export default function ProofStrip({ projects }: { projects: Project[] }) {
   const { language } = useLanguage();
   const t = translations[language].home.proof;
-  const withLogos = projects.filter((p) => p.logo);
+  // One logo per client (You Can and Liverpool share the clinic's logo).
+  const withLogos = projects.filter((p, i) => p.logo && projects.findIndex((q) => q.logo === p.logo) === i);
+  const clientName = (p: Project) => (p.client.startsWith('TODO') ? p.name : p.client);
 
   return (
     <section aria-label={t.label} className="border-y border-surface-line">
@@ -16,13 +19,11 @@ export default function ProofStrip({ projects }: { projects: Project[] }) {
           <ul className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-6 lg:justify-between">
             {withLogos.map((p) => (
               <li key={p.slug}>
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  loading="lazy"
-                  decoding="async"
-                  // TODO(Stage 4): trim the transparent padding in these PNGs, then this can shrink back
-                  className="h-14 w-auto max-w-[150px] object-contain opacity-75 brightness-0 invert transition-opacity hover:opacity-100 sm:h-16"
+                <Img
+                  src={p.logo!}
+                  alt={clientName(p)}
+                  sizes="150px"
+                  className="h-11 w-auto max-w-[140px] object-contain opacity-75 brightness-0 invert transition-opacity hover:opacity-100 sm:h-12"
                 />
               </li>
             ))}

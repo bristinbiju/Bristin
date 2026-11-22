@@ -113,7 +113,7 @@ export const translations = {
       about: {
         eyebrow: "About",
         title: "Hi, I'm Bristin.",
-        avatarAlt: "Illustrated 3D portrait of Bristin Biju",
+        photoAlt: "Portrait of Bristin Biju",
         toolsLabel: "Tools",
         tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer"]
       },
@@ -275,7 +275,7 @@ export const translations = {
       about: {
         eyebrow: "À propos",
         title: "Bonjour, je suis Bristin.",
-        avatarAlt: "Portrait 3D illustré de Bristin Biju",
+        photoAlt: "Portrait de Bristin Biju",
         toolsLabel: "Outils",
         tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer"]
       },

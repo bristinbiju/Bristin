@@ -25,7 +25,7 @@ git grep -n "TODO" src/data
 | Year | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Tools | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Deliverables | ✗ | ✗ | ✗ | ✗ | ✓ ² | ✗ | ✗ | ✗ |
-| Client name | ✗ ³ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Client name | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Challenge (2-3 sentences) | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Goal | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Process: moodboard, sketches, iterations (text + image) | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
@@ -38,7 +38,7 @@ git grep -n "TODO" src/data
 2. Taken from what the artwork shows (logo, palette, signage, posters,
    digital, merch, social campaign). Please confirm that all of it was your
    work.
-3. Which organisation was the World Cancer Day "You Can" campaign for?
+3. ~~Which organisation was "You Can" for?~~ Liverpool Medical Clinic (confirmed in Stage 4).
 
 ## Decisions
 - **Featured projects** (large cards on the home page in Stage 3): currently

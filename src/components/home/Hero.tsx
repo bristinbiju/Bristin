@@ -4,6 +4,7 @@ import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 import type { Project } from '../../data/projects';
+import Img from '../site/Img';
 
 /** Hero: positioning line, two actions, three featured thumbnails. */
 export default function Hero({ featured }: { featured: Project[] }) {
@@ -68,11 +69,12 @@ export default function Hero({ featured }: { featured: Project[] }) {
                 to={`/work/${p.slug}`}
                 className="group relative block h-full overflow-hidden rounded-card bg-surface-raised"
               >
-                <img
+                <Img
                   src={p.cover}
                   alt={`${p.name}: ${p.category}`}
-                  fetchPriority={i === 0 ? 'high' : 'auto'}
-                  decoding="async"
+                  priority={i === 0}
+                  loading="eager"
+                  sizes="(min-width: 1024px) 22vw, 33vw"
                   className={`h-full w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-[1.04] motion-reduce:transition-none ${
                     i === 0 ? 'aspect-[3/4] lg:aspect-auto' : 'aspect-[3/4] lg:aspect-[4/3]'
                   }`}

@@ -18,6 +18,9 @@ export type ProjectSlug =
  * Facts that are the same in every language. All wording (title, challenge,
  * captions ...) lives in src/data/case-studies.ts, in EN and FR, keyed by slug
  * and by the `id`s used below.
+ *
+ * Image paths have no size or extension: '/images/projects/gba/01' means
+ * images-src/projects/gba/01.<ext>, published by `npm run images`.
  */
 export interface ProjectMeta {
   slug: ProjectSlug;
@@ -31,12 +34,10 @@ export interface ProjectMeta {
   category: CategoryKey;
   tags: CategoryKey[];
   tools: string[];
-  /** Shown as a large card in "Selected work" on the home page (Stage 3). */
+  /** Shown as a large card in "Selected work" on the home page. */
   featured: boolean;
   externalLink?: string;
-  /** Card images used by the current home page. */
-  images: { leftTop: string; leftBottom: string; right: string };
-  /** Large image at the top of the case study. */
+  /** Card image and the large image at the top of the case study. */
   cover: string;
   /** Process stages: text in case-studies.ts > process[id]. */
   process: { id: string; image?: string }[];
@@ -48,107 +49,91 @@ export interface ProjectMeta {
 /** Moodboard, sketches and iterations: same stages for every project until real content exists. */
 const defaultProcess = [{ id: 'moodboard' }, { id: 'sketches' }, { id: 'iterations' }];
 
-const P = '/images/projects';
+const img = (slug: ProjectSlug, name: string) => `/images/projects/${slug}/${name}`;
+const files = (slug: ProjectSlug, names: string[]) => names.map((n) => img(slug, n));
 
 export const projectsMeta: ProjectMeta[] = [
   {
     slug: 'you-can',
     num: '01',
     name: 'You Can',
-    client: TODO('client for the World Cancer Day "You Can" campaign'),
+    client: 'Liverpool Medical Clinic',
+    logo: img('liverpool', 'logo'),
+    logoOnLight: true,
     year: TODO('year'),
     category: 'campaign',
     tags: ['campaign'],
     tools: [],
     featured: true,
     externalLink: 'https://www.behance.net/gallery/218572583/World-Cancer-Day?share=1',
-    images: {
-      leftTop: `${P}/liverpool/liverpool-01.png`,
-      leftBottom: `${P}/liverpool/liverpool-02.png`,
-      right: `${P}/liverpool/liverpool-03.png`,
-    },
-    cover: `${P}/liverpool/liverpool-01.png`,
+    cover: img('you-can', 'you-can-01'),
     process: defaultProcess,
     showcase: [],
-    gallery: [1, 2, 3, 4, 5, 6].map((n) => `${P}/liverpool/liverpool-0${n}.png`),
+    gallery: files('you-can', ['01', '02', '03', '04', '05', '06', '07', '08'].map((n) => `you-can-${n}`)),
   },
   {
     slug: 'cowary-farms',
     num: '02',
     name: 'Cowary Farms',
     client: 'Cowary Farms',
-    logo: `${P}/cowary/Cowary Farms Logo-01.png`,
+    logo: img('cowary-farms', 'logo'),
     year: TODO('year'),
     category: 'socialMedia',
     tags: ['socialMedia'],
     tools: [],
     featured: false,
-    images: {
-      leftTop: `${P}/cowary/Cowary_.png`,
-      leftBottom: `${P}/cowary/Goat Farming.jpg`,
-      right: `${P}/cowary/Gvlobal stage!.jpg`,
-    },
-    cover: `${P}/cowary/Cowary_.png`,
+    cover: img('cowary-farms', 'cowary'),
     process: defaultProcess,
     showcase: [],
-    gallery: [
-      '2.jpg', 'A Day on the Farm.jpg', 'Artboard 1.1.png', 'Artboard 2.png', 'Artboard 4.jpg',
-      'Artboard 5.jpg', 'Beekeeping Training Flyer.jpg', 'Easter Begins at the Roots.jpg',
-      'Goat Farming.jpg', 'Gvlobal stage!.jpg', 'Happy Easter.jpg', 'Labour Day post.jpg',
-      'Meet Us in.jpg', 'Ranchers Programme copy.jpg', 'Woman Behind the Vision.jpg',
-    ].map((f) => `${P}/cowary/${f}`),
+    gallery: files('cowary-farms', [
+      '02', 'a-day-on-the-farm', 'artboard-1-1', 'artboard-2', 'artboard-4', 'artboard-5',
+      'beekeeping-training-flyer', 'easter-begins-at-the-roots', 'goat-farming', 'global-stage',
+      'happy-easter', 'labour-day-post', 'lets-grow-together', 'meet-us-in', 'ranchers-programme',
+      'woman-behind-the-vision',
+    ]),
   },
   {
     slug: 'liverpool',
     num: '03',
     name: 'Liverpool',
-    client: 'Liverpool',
-    year: TODO('year'),
-    category: 'socialMedia',
-    tags: ['socialMedia'],
-    tools: [],
-    featured: false,
-    images: {
-      leftTop: `${P}/liverpool-social/Liverpool.jpg`,
-      leftBottom: `${P}/liverpool-social/Caring.jpg`,
-      right: `${P}/liverpool-social/Annual Health Check 02.jpg`,
-    },
-    cover: `${P}/liverpool-social/Liverpool.jpg`,
-    process: defaultProcess,
-    showcase: [],
-    gallery: [
-      'Annual Health Check 02.jpg', 'Bone Cancer Awareness_.png', 'Brain Facts.png', 'Caring.jpg',
-      'Easter.jpg', 'Fertility Care & Support02_.jpg', 'Healthy Heart.jpg',
-      'Heat exhaustion hits fast.png', 'IVF.png', 'Next Big Leap_.jpg', 'Webinar -02.jpg',
-      'Webinar02 -03-03.jpg', 'World Brain Day.png', 'World Cancer Day04.jpg', 'Your bones peak.png',
-    ].map((f) => `${P}/liverpool-social/${f}`),
-  },
-  {
-    slug: 'devine',
-    num: '04',
-    name: 'Devine',
-    client: 'Devine',
-    logo: `${P}/devine-social/logo.png`,
+    client: 'Liverpool Medical Clinic',
+    logo: img('liverpool', 'logo'),
     logoOnLight: true,
     year: TODO('year'),
     category: 'socialMedia',
     tags: ['socialMedia'],
     tools: [],
     featured: false,
-    images: {
-      leftTop: `${P}/devine-social/FB Cover.jpg`,
-      leftBottom: `${P}/devine-social/Pure. Natural. Divine.jpg`,
-      right: `${P}/devine-social/Your Health.jpg`,
-    },
-    cover: `${P}/devine-social/FB Cover.jpg`,
+    cover: img('liverpool', 'liverpool'),
     process: defaultProcess,
     showcase: [],
-    gallery: [
-      'carousel-1_01.jpg', 'carousel-1_02.jpg', 'carousel-1_03.jpg', '04_02.jpg', 'A super Crop.jpg',
-      'Carousel-Post---Why-Cassava_06.jpg', 'Carousel-Post---Why-Cassava_07.jpg',
-      'Cookis-Recipe_01.jpg', 'Easter Poster.jpg', 'Labour Day.jpg', 'Pure. Natural. Divine.jpg',
-      'Your Health.jpg',
-    ].map((f) => `${P}/devine-social/${f}`),
+    gallery: files('liverpool', [
+      'annual-health-check-02', 'bone-cancer-awareness', 'brain-facts', 'caring', 'easter',
+      'fertility-care-and-support02', 'healthy-heart', 'heat-exhaustion-hits-fast', 'ivf',
+      'next-big-leap', 'webinar-02', 'webinar02-03-03', 'world-brain-day', 'world-cancer-day04',
+      'your-bones-peak',
+    ]),
+  },
+  {
+    slug: 'devine',
+    num: '04',
+    name: 'Devine',
+    client: 'Devine',
+    logo: img('devine', 'logo'),
+    logoOnLight: true,
+    year: TODO('year'),
+    category: 'socialMedia',
+    tags: ['socialMedia'],
+    tools: [],
+    featured: false,
+    cover: img('devine', 'fb-cover'),
+    process: defaultProcess,
+    showcase: [],
+    gallery: files('devine', [
+      'carousel-1-01', 'carousel-1-02', 'carousel-1-03', '04-02', 'a-super-crop',
+      'carousel-post-why-cassava-06', 'carousel-post-why-cassava-07', 'cookies-recipe-01',
+      'easter-poster', 'labour-day', 'pure-natural-divine', 'your-health',
+    ]),
   },
   {
     // Stage 2 example: the fullest case study so far.
@@ -156,108 +141,83 @@ export const projectsMeta: ProjectMeta[] = [
     num: '05',
     name: 'GBA',
     client: 'Global Business Africa (GBA)',
-    logo: `${P}/gba-designs/logo.png`,
+    logo: img('gba', 'logo'),
     year: TODO('year, e.g. 2025 (the campaign is for AIM Congress, April 2025)'),
     category: 'branding',
     tags: ['branding', 'campaign'],
     tools: [],
     featured: true,
-    images: {
-      leftTop: `${P}/gba-designs/Artboard 5.jpg`,
-      leftBottom: `${P}/gba-designs/01.jpg`,
-      right: `${P}/gba-designs/02.jpg`,
-    },
-    cover: `${P}/gba-designs/03.jpg`,
+    cover: img('gba', '03'),
     process: defaultProcess,
     showcase: [
-      { id: 'logo', image: `${P}/gba-designs/01.jpg` },
-      { id: 'palette', image: `${P}/gba-designs/08.jpg` },
-      { id: 'signage', image: `${P}/gba-designs/03.jpg` },
-      { id: 'banners', image: `${P}/gba-designs/04.jpg` },
-      { id: 'outdoor', image: `${P}/gba-designs/02.jpg` },
-      { id: 'digital', image: `${P}/gba-designs/06.jpg` },
-      { id: 'merch', image: `${P}/gba-designs/07.jpg` },
-      { id: 'campaign', image: `${P}/gba-designs/AIM Congress 2025 01.jpg` },
+      { id: 'logo', image: img('gba', '01') },
+      { id: 'palette', image: img('gba', '08') },
+      { id: 'signage', image: img('gba', '03') },
+      { id: 'banners', image: img('gba', '04') },
+      { id: 'outdoor', image: img('gba', '02') },
+      { id: 'digital', image: img('gba', '06') },
+      { id: 'merch', image: img('gba', '07') },
+      { id: 'campaign', image: img('gba', 'aim-congress-2025-01') },
     ],
-    gallery: [
-      '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg',
-      'AIM Congress 2025 01.jpg', 'AIM Congress 2025 04.jpg', 'AIM Congress 2025 05.jpg',
-      'AIM Congress 2025 06.jpg', 'Artboard 5.jpg',
-    ].map((f) => `${P}/gba-designs/${f}`),
+    gallery: files('gba', [
+      '01', '02', '03', '04', '05', '06', '07', '08', 'aim-congress-2025-01', 'aim-congress-2025-04',
+      'aim-congress-2025-05', 'aim-congress-2025-06', 'artboard-5',
+    ]),
   },
   {
     slug: 'javvis',
     num: '06',
     name: 'Javvis',
     client: 'Javvis',
-    logo: `${P}/javvis-designs/logo.png`,
+    logo: img('javvis', 'logo'),
     year: TODO('year'),
     category: 'branding',
     tags: ['branding'],
     tools: [],
     featured: true,
-    images: {
-      leftTop: `${P}/javvis-designs/01.jpg`,
-      leftBottom: `${P}/javvis-designs/02.jpg`,
-      right: `${P}/javvis-designs/03.jpg`,
-    },
-    cover: `${P}/javvis-designs/01.jpg`,
+    cover: img('javvis', '01'),
     process: defaultProcess,
     showcase: [],
-    gallery: [
-      '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg',
-      'Artboard 1.jpg',
-    ].map((f) => `${P}/javvis-designs/${f}`),
+    gallery: files('javvis', ['01', '02', '03', '04', '05', '06', '07', '08', '09', 'artboard-1']),
   },
   {
     slug: 'joyce4life',
     num: '07',
     name: 'Joyce4Life',
     client: 'Joyce4Life',
-    logo: `${P}/joyce4life-designs/logo.png`,
+    logo: img('joyce4life', 'logo'),
     logoOnLight: true,
     year: TODO('year'),
     category: 'branding',
     tags: ['branding'],
     tools: [],
     featured: false,
-    images: {
-      leftTop: `${P}/joyce4life-designs/01.jpg`,
-      leftBottom: `${P}/joyce4life-designs/02.jpg`,
-      right: `${P}/joyce4life-designs/03.jpg`,
-    },
-    cover: `${P}/joyce4life-designs/01.jpg`,
+    cover: img('joyce4life', '01'),
     process: defaultProcess,
     showcase: [],
-    gallery: [
-      '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg',
-      '10.jpg', '11.jpg', '12.jpg', 'Artboard 1.jpg',
-    ].map((f) => `${P}/joyce4life-designs/${f}`),
+    gallery: files('joyce4life', [
+      '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', 'artboard-1',
+    ]),
   },
   {
     slug: 'forti',
     num: '08',
     name: 'Forti',
     client: 'Forti',
-    logo: `${P}/forti-designs/logo.png`,
+    logo: img('forti', 'logo'),
     logoOnLight: true,
     year: TODO('year'),
     category: 'packaging',
     tags: ['packaging'],
     tools: [],
     featured: true,
-    images: {
-      leftTop: `${P}/forti-designs/Pakage Design 02.jpg`,
-      leftBottom: `${P}/forti-designs/Corn Porridge Pakage 01.jpg`,
-      right: `${P}/forti-designs/Fufu 01.jpg`,
-    },
-    cover: `${P}/forti-designs/Pakage Design 02.jpg`,
+    cover: img('forti', 'package-design-02'),
     process: defaultProcess,
     showcase: [],
-    gallery: [
-      'Corn Porridge Pakage 01.jpg', 'Fufu 01.jpg', 'Packaging Mockup.jpg', 'Packaging Mockup3.jpg',
-      'Pakage Design 02.jpg', 'Psd_1.jpg', 'Psd_4.jpg',
-    ].map((f) => `${P}/forti-designs/${f}`),
+    gallery: files('forti', [
+      'corn-porridge-package-01', 'fufu-01', 'cassava-starch-red', '06', 'packaging-mockup',
+      'packaging-mockup3', 'package-design-02', 'psd-1', 'psd-4',
+    ]),
   },
 ];
 
@@ -266,10 +226,9 @@ export const getProjects = (lang: Language) => {
   const t = translations[lang];
   return projectsMeta.map((p) => ({
     ...p,
-    // Fields the current home page (ProjectsSection) still reads:
+    // Localised category label (the key stays in categoryKey).
     category: t.projects.categories[p.category],
     categoryKey: p.category,
-    link: p.externalLink ?? '',
     text: t.caseStudies[p.slug],
   }));
 };

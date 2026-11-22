@@ -6,6 +6,7 @@ import SiteHeader from '../components/site/SiteHeader';
 import SiteFooter from '../components/site/SiteFooter';
 import Todo from '../components/site/Todo';
 import Reveal from '../components/site/Reveal';
+import Img, { imgUrl } from '../components/site/Img';
 import Lightbox from '../components/Lightbox';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
@@ -24,12 +25,14 @@ function Copy({ value, label, className = '' }: { value: string; label: string; 
 const shows = (...values: (string | undefined)[]) => values.some((v) => isFilled(v)) || SHOW_DRAFTS;
 
 function ImageButton({
-  src, alt, label, onOpen, className = '', eager = false, natural = false,
+  src, alt, label, onOpen, className = '', eager = false, natural = false, sizes = '100vw',
 }: {
   src: string; alt: string; label: string; onOpen: () => void;
   className?: string; eager?: boolean;
   /** Keep the image's own proportions (masonry gallery) instead of filling the box. */
   natural?: boolean;
+  /** Rendered width hint for srcset. */
+  sizes?: string;
 }) {
   return (
     <button
@@ -38,12 +41,11 @@ function ImageButton({
       aria-label={`${label}: ${alt}`}
       className={`group block w-full overflow-hidden rounded-card bg-surface-raised ${className}`}
     >
-      <img
+      <Img
         src={src}
         alt={alt}
-        loading={eager ? 'eager' : 'lazy'}
-        decoding="async"
-        {...(eager ? { fetchPriority: 'high' as const } : {})}
+        priority={eager}
+        sizes={sizes}
         className={`w-full transition-transform duration-700 ease-out-soft group-hover:scale-[1.03] motion-reduce:transition-none ${natural ? 'h-auto' : 'h-full object-cover'}`}
       />
     </button>
@@ -144,11 +146,10 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
       content: (
         <span className="flex flex-col items-start gap-3">
           {project.logo && (
-            <img
+            <Img
               src={project.logo}
               alt=""
-              loading="lazy"
-              decoding="async"
+              sizes="80px"
               className={`h-12 w-20 shrink-0 rounded-lg object-contain p-1.5 ${project.logoOnLight ? 'bg-paper' : 'bg-surface ring-1 ring-surface-line'}`}
             />
           )}
@@ -262,7 +263,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
               {steps.map((s, i) => (
                 <Reveal as="li" key={s.id} className="flex h-full flex-col gap-4">
                     {s.image ? (
-                      <ImageButton src={s.image} alt={s.title} label={t.openImage} onOpen={() => openInGallery(s.image!)} className="aspect-[4/3]" />
+                      <ImageButton src={s.image} alt={s.title} label={t.openImage} onOpen={() => openInGallery(s.image!)} className="aspect-[4/3]" sizes="(min-width: 768px) 33vw, 100vw" />
                     ) : (
                       SHOW_DRAFTS && <Todo label={`${s.title} image`} hint="add process.image in projects.ts" />
                     )}
@@ -296,6 +297,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
                           label={t.openImage}
                           onOpen={() => openInGallery(s.image)}
                           className={i === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'}
+                          sizes={i === 0 ? '(min-width: 1200px) 1120px, 100vw' : '(min-width: 640px) 50vw, 100vw'}
                         />
                         {isFilled(s.caption) && (
                           <figcaption className="mt-3 max-w-[60ch] text-sm text-fg-muted">{s.caption}</figcaption>
@@ -342,6 +344,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
                     label={t.openImage}
                     onOpen={() => openInGallery(src)}
                     natural
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   />
                 </li>
               ))}
@@ -361,7 +364,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
                   to={`/work/${p.slug}`}
                   className={`group flex items-center gap-4 rounded-card border border-surface-line bg-surface-raised p-4 transition-colors hover:border-accent/60 ${align}`}
                 >
-                  <img src={p.cover} alt="" loading="lazy" decoding="async" className="h-16 w-20 shrink-0 rounded-lg object-cover" />
+                  <Img src={p.cover} alt="" sizes="80px" className="h-16 w-20 shrink-0 rounded-lg object-cover" />
                   <span className="min-w-0">
                     <span className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted ${align ? 'sm:justify-end' : ''}`}>
                       {icon} {label}
@@ -395,7 +398,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
 
       <Lightbox
         isOpen={!!lightbox}
-        images={lightbox?.images ?? []}
+        images={(lightbox?.images ?? []).map((src) => imgUrl(src, 1600))}
         initialIndex={lightbox?.index ?? 0}
         onClose={() => setLightbox(null)}
       />

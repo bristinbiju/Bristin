@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import Reveal from '../site/Reveal';
 import Todo from '../site/Todo';
+import Img from '../site/Img';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 
@@ -14,15 +15,12 @@ export function About() {
     <section id="about" aria-labelledby="about-title" className="border-t border-surface-line">
       <div className="content-wrap section-pad grid-12 items-center gap-y-12">
         <Reveal className="col-span-12 md:col-span-5 lg:col-span-4">
-          <div className="mx-auto aspect-square w-full max-w-[320px] overflow-hidden rounded-full bg-surface-raised ring-1 ring-surface-line md:max-w-none">
-            <img
-              src="/images/hero-asset-new.png"
-              alt={a.avatarAlt}
-              width={1214}
-              height={1295}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-contain p-6"
+          <div className="mx-auto aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-card bg-surface-raised md:max-w-none">
+            <Img
+              src="/images/about/photo"
+              alt={a.photoAlt}
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="h-full w-full object-cover"
             />
           </div>
         </Reveal>
