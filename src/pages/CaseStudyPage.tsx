@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import SiteHeader from '../components/site/SiteHeader';
 import SiteFooter from '../components/site/SiteFooter';
 import Todo from '../components/site/Todo';
+import Reveal from '../components/site/Reveal';
 import Lightbox from '../components/Lightbox';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
@@ -13,24 +14,6 @@ import { SHOW_DRAFTS, filledList, isFilled } from '../data/content';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 /* ---------- small building blocks ---------- */
-
-function Reveal({ children, className = '', as = 'div' }: { children: ReactNode; className?: string; as?: 'div' | 'li' }) {
-  const reduce = useReducedMotion();
-  const Tag = as;
-  if (reduce) return <Tag className={className}>{children}</Tag>;
-  const M = as === 'li' ? motion.li : motion.div;
-  return (
-    <M
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '0px 0px -10% 0px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </M>
-  );
-}
 
 /** Text if filled, otherwise a dev-only TODO. */
 function Copy({ value, label, className = '' }: { value: string; label: string; className?: string }) {

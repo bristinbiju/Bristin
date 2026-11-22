@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  /* Legacy font, still used by the current site. Replaced by
-     --font-display / --font-body in Stage 3. */
-  --font-sans: "Kanit", sans-serif;
+  /* Default sans = body font, so any plain `font-sans` matches the system. */
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
 
   /* ---------------------------------------------------------------
      Redesign design system (Stage 1). Nothing below changes the
@@ -46,7 +45,7 @@
   --text-h3--line-height: 1.25;
   --text-h2: clamp(2rem, 1.5rem + 2vw, 3.25rem);
   --text-h2--line-height: 1.1;
-  --text-h1: clamp(2.5rem, 1.6rem + 3.8vw, 5rem);
+  --text-h1: clamp(2.25rem, 1.5rem + 2.6vw, 4rem); /* Syne is wide: 36px phone, 57px at 1280 */
   --text-h1--line-height: 1.05;
 
   /* Layout. Spacing stays on Tailwind's 4px base, so even steps
@@ -86,21 +85,25 @@
   }
   html,
   body,
-  #root,
-  .main-wrapper {
-    @apply bg-[#0C0C0C] text-[#D7E2EA] font-sans m-0 p-0 box-border;
+  #root {
+    @apply bg-surface text-fg font-body m-0 p-0 box-border;
   }
 
-  /* Keyboard focus ring — brand magenta, visible everywhere */
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+  }
+
+  /* Keyboard focus ring: accent, visible on dark and light sections */
   :focus-visible {
-    outline: 2px solid #B600A8;
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
   /* Anchor offset so nav doesn't clip section headings */
   section[id] {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 72px; /* 64px sticky header + breathing room */
   }
 }
 

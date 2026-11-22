@@ -1,21 +1,42 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** Scroll smoothly to a section on the current page (instant under reduced motion). */
+export function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({
+    block: 'start',
+    behavior: prefersReducedMotion() ? 'instant' : 'smooth',
+  });
+}
+
 /**
- * Scrolls to the top on every page change. When the URL has a hash
- * (e.g. /#projects from a case study), scrolls to that section once it exists.
+ * Handles scrolling on navigation:
+ * - a new page starts at the top;
+ * - /#section from another page jumps straight to that section;
+ * - #section on the same page scrolls there smoothly.
+ * 'instant' overrides the global `scroll-behavior: smooth`, so a page change
+ * never starts as a long smooth scroll that another navigation can interrupt.
  */
 export default function ScrollManager() {
   const { pathname, hash } = useLocation();
+  const prevPath = useRef<string | null>(null);
 
   useEffect(() => {
-    // 'instant' overrides the global `scroll-behavior: smooth`, so a page change
-    // never starts as a long smooth scroll that another navigation can interrupt.
+    const samePage = prevPath.current === pathname;
+    prevPath.current = pathname;
+
     if (!hash) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (!samePage) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       return;
     }
     const id = decodeURIComponent(hash.slice(1));
+    if (samePage) {
+      scrollToSection(id);
+      return;
+    }
     let tries = 0;
     const timer = window.setInterval(() => {
       const el = document.getElementById(id);
