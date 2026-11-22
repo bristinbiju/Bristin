@@ -172,10 +172,7 @@ export const translations = {
       projectsNavLabel: "More projects",
       skipToContent: "Skip to content"
     },
-    caseStudies: caseStudiesEn,
-    footer: {
-      copyright: "Bristin Biju. All rights reserved."
-    }
+    caseStudies: caseStudiesEn
   },
   fr: {
     nav: {
@@ -348,9 +345,6 @@ export const translations = {
       projectsNavLabel: "Autres projets",
       skipToContent: "Aller au contenu"
     },
-    caseStudies: caseStudiesFr,
-    footer: {
-      copyright: "Bristin Biju. Tous droits réservés."
-    }
+    caseStudies: caseStudiesFr
   }
 };

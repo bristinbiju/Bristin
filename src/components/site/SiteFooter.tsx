@@ -8,10 +8,7 @@ export default function SiteFooter() {
 
   return (
     <footer className="border-t border-surface-line">
-      <div className="content-wrap flex flex-col gap-4 py-10 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>
-          © {new Date().getFullYear()} {t.footer.copyright}
-        </p>
+      <div className="content-wrap py-10 text-sm text-fg-muted">
         <ul className="flex flex-wrap gap-6">
           <li><Link className="hover:text-fg" to={lp('/#projects')}>{t.nav.projects}</Link></li>
           <li><Link className="hover:text-fg" to={lp('/#about')}>{t.nav.about}</Link></li>
