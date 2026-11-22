@@ -28,14 +28,22 @@ export function About() {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{a.eyebrow}</p>
           <h2 id="about-title" className="mt-4 font-display text-h2 font-bold text-fg">{a.title}</h2>
           <p className="mt-6 max-w-[62ch] text-lead text-fg-muted">{t.about.description}</p>
-          <p className="mt-10 text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted">{a.skillsLabel}</p>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {a.skills.map((skill) => (
-              <li key={skill} className="rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm text-fg">
-                {skill}
-              </li>
-            ))}
-          </ul>
+          {/* Skill groups: same label + pill style, same spacing between groups */}
+          {[
+            { label: a.designSkillsLabel, items: a.designSkills },
+            { label: a.skillsLabel, items: a.skills },
+          ].map((group, i) => (
+            <div key={group.label} className={i === 0 ? 'mt-10' : 'mt-8'}>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted">{group.label}</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((skill) => (
+                  <li key={skill} className="rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm text-fg">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
           <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted">{a.toolsLabel}</p>
           <ul className="mt-4 flex flex-wrap gap-2">
             {a.tools.map((tool) => (

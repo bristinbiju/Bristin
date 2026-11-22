@@ -114,7 +114,9 @@ export const translations = {
         eyebrow: "About",
         title: "Hi, I'm Bristin.",
         photoAlt: "Portrait of Bristin Biju",
-        skillsLabel: "Skills",
+        designSkillsLabel: "Design & Creative Skills",
+        designSkills: ["Brand Identity & Logo Design", "Graphic Design & Visual Communication", "Typography & Layout Design", "Art Direction & Creative Strategy", "Social Media & Campaign Design", "Motion Graphics & Video Editing", "UI/UX & Web Design", "Visual Storytelling"],
+        skillsLabel: "AI & Digital Skills",
         skills: ["AI-Assisted Web Development", "Vibe Coding", "Prompt Engineering", "AI-Powered Creative Workflows"],
         toolsLabel: "Tools",
         tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer", "ChatGPT", "Claude", "Antigravity", "VS Code", "GitHub", "Vercel"]
@@ -278,7 +280,9 @@ export const translations = {
         eyebrow: "À propos",
         title: "Bonjour, je suis Bristin.",
         photoAlt: "Portrait de Bristin Biju",
-        skillsLabel: "Compétences",
+        designSkillsLabel: "Compétences design & créatives",
+        designSkills: ["Identité de marque & création de logo", "Design graphique & communication visuelle", "Typographie & mise en page", "Direction artistique & stratégie créative", "Design réseaux sociaux & campagnes", "Motion design & montage vidéo", "Design UI/UX & web", "Storytelling visuel"],
+        skillsLabel: "Compétences IA & digitales",
         skills: ["Développement web assisté par l'IA", "Vibe coding", "Prompt engineering", "Workflows créatifs propulsés par l'IA"],
         toolsLabel: "Outils",
         tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer", "ChatGPT", "Claude", "Antigravity", "VS Code", "GitHub", "Vercel"]
