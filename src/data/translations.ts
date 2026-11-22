@@ -1,3 +1,5 @@
+import { caseStudiesEn, caseStudiesFr } from './case-studies';
+
 export const translations = {
   en: {
     nav: {
@@ -45,6 +47,7 @@ export const translations = {
     projects: {
       title: "Work",
       liveProject: "Live Project",
+      caseStudy: "Case study",
       categories: {
         campaign: "Campaign",
         socialMedia: "Social Media",
@@ -58,6 +61,31 @@ export const translations = {
       emailLabel: "bristinbiju123@gmail.com",
       cta: "Email Me"
     },
+    caseStudy: {
+      backToWork: "All work",
+      client: "Client",
+      role: "Role",
+      year: "Year",
+      deliverables: "Deliverables",
+      tools: "Tools",
+      challenge: "The challenge",
+      goal: "The goal",
+      process: "Process",
+      solution: "The solution",
+      outcome: "The outcome",
+      gallery: "Gallery",
+      viewExternal: "View on Behance",
+      previous: "Previous project",
+      next: "Next project",
+      ctaHeadline: "Have a project in mind?",
+      ctaText: "Tell me about your brand, campaign or launch.",
+      ctaButton: "Start a project",
+      openImage: "Open image",
+      notFoundTitle: "Project not found",
+      notFoundText: "This project doesn't exist or has moved.",
+      skipToContent: "Skip to content"
+    },
+    caseStudies: caseStudiesEn,
     footer: {
       copyright: "Bristin Biju. All rights reserved."
     }
@@ -108,6 +136,7 @@ export const translations = {
     projects: {
       title: "Projets",
       liveProject: "Voir le projet",
+      caseStudy: "Étude de cas",
       categories: {
         campaign: "Campagne",
         socialMedia: "Réseaux Sociaux",
@@ -121,6 +150,31 @@ export const translations = {
       emailLabel: "bristinbiju123@gmail.com",
       cta: "M'écrire"
     },
+    caseStudy: {
+      backToWork: "Tous les projets",
+      client: "Client",
+      role: "Rôle",
+      year: "Année",
+      deliverables: "Livrables",
+      tools: "Outils",
+      challenge: "Le défi",
+      goal: "L'objectif",
+      process: "Processus",
+      solution: "La solution",
+      outcome: "Le résultat",
+      gallery: "Galerie",
+      viewExternal: "Voir sur Behance",
+      previous: "Projet précédent",
+      next: "Projet suivant",
+      ctaHeadline: "Un projet en tête ?",
+      ctaText: "Parlez-moi de votre marque, campagne ou lancement.",
+      ctaButton: "Démarrer un projet",
+      openImage: "Ouvrir l'image",
+      notFoundTitle: "Projet introuvable",
+      notFoundText: "Ce projet n'existe pas ou a été déplacé.",
+      skipToContent: "Aller au contenu"
+    },
+    caseStudies: caseStudiesFr,
     footer: {
       copyright: "Bristin Biju. Tous droits réservés."
     }

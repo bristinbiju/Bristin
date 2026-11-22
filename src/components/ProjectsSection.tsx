@@ -3,7 +3,8 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import FadeIn from './FadeIn';
 import LiveProjectButton from './LiveProjectButton';
 import Lightbox from './Lightbox';
-import { Search } from 'lucide-react';
+import { Search, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { getProjects } from '../data/projects';
 import { translations } from '../data/translations';
@@ -18,6 +19,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, range, targetScale, onOpenLightbox }) => {
+  const { language } = useLanguage();
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -43,7 +45,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, progress, ran
               </h3>
             </div>
           </div>
-          <LiveProjectButton link={project.link} />
+          <div className="flex flex-wrap items-center gap-3">
+            <LiveProjectButton link={project.link} />
+            <Link
+              to={`/work/${project.slug}`}
+              className="inline-flex items-center gap-2 rounded-full bg-[#D7E2EA] text-[#0C0C0C] font-medium uppercase tracking-widest px-8 py-3 sm:px-10 sm:py-3.5 text-sm sm:text-base transition-opacity hover:opacity-85"
+            >
+              {translations[language].projects.caseStudy} <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
 
         {/* Bottom Row - Images */}
