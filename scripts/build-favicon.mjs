@@ -9,7 +9,8 @@
  *   public/icon-192.png          web manifest
  *   public/icon-512.png          web manifest
  *
- * The SVG itself is served as the primary icon. Edit it, then run this script.
+ * The SVG itself is served as the primary icon. Edit it, then run this script,
+ * and bump the ?v= number on the icon links in index.html and site.webmanifest.
  */
 import fs from 'node:fs';
 import sharp from 'sharp';
