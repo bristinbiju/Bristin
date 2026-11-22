@@ -84,7 +84,7 @@ function Shell({ children }: { children: ReactNode }) {
 function NotFound() {
   const { language } = useLanguage();
   const t = translations[language].caseStudy;
-  usePageMeta({ ...pageMeta(language, '__missing__'), title: `${t.notFoundTitle} | Bristin Biju` });
+  usePageMeta(pageMeta(language, '__missing__'));
   return (
     <Shell>
       <main id="main" className="content-wrap section-pad">

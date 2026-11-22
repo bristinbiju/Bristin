@@ -8,6 +8,7 @@
  * Twitter tags already in place:
  *   dist/index.html            /
  *   dist/work/<slug>.html      /work/<slug>   (served by vercel.json "cleanUrls")
+ *   dist/404.html              any unknown URL (Vercel serves it with status 404)
  * plus dist/sitemap.xml and dist/robots.txt.
  */
 import fs from 'node:fs';
@@ -39,7 +40,8 @@ const template = fs
   .replace('</head>', `  ${fontPreloads}\n  </head>`);
 const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-function render(meta) {
+/** `route` is the URL to pre-render (defaults to the page's own path). */
+function render(meta, route = meta.path) {
   const url = `${SITE_URL}${meta.path}`;
   const img = `${SITE_URL}${meta.image}`;
   const set = (html, re, value) => {
@@ -68,7 +70,8 @@ function render(meta) {
     );
   }
   if (!html.includes('<div id="root"></div>')) throw new Error('index.html is missing <div id="root"></div>');
-  html = html.replace('<div id="root"></div>', `<div id="root">${renderApp(meta.path)}</div>`);
+  if (meta.noindex) html = html.replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>');
+  html = html.replace('<div id="root"></div>', `<div id="root">${renderApp(route)}</div>`);
   return html;
 }
 
@@ -80,6 +83,9 @@ for (const meta of routes) {
   fs.writeFileSync(path.join(DIST, file), render(meta));
 }
 
+// Styled "not found" page for unknown URLs (not in the sitemap).
+fs.writeFileSync(path.join(DIST, '404.html'), render(pageMeta('en', '__missing__'), '/404'));
+
 const today = new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -88,7 +94,7 @@ ${routes.map((m) => `  <url><loc>${SITE_URL}${m.path}</loc><lastmod>${today}</la
 `;
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
 fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
-console.log(`meta: ${routes.length} pre-rendered pages, sitemap.xml, robots.txt`);
+console.log(`meta: ${routes.length} pre-rendered pages + 404.html, sitemap.xml, robots.txt`);
 } finally {
   await vite.close();
 }

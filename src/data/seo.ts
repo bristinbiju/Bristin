@@ -1,5 +1,6 @@
 import type { Language } from '../context/LanguageContext';
 import { getProjects } from './projects';
+import { translations } from './translations';
 import { isFilled } from './content';
 
 export const SITE_URL = 'https://bristin.world';
@@ -36,7 +37,9 @@ export function pageMeta(lang: Language, slug?: string): PageMeta {
   }
   const p = getProjects(lang).find((x) => x.slug === slug);
   if (!p) {
-    return { title: `404 | ${SITE_NAME}`, description: homeDescription[lang], path: '/', image: '/og/home.jpg', noindex: true };
+    // Unknown slug or URL: also used for the pre-rendered dist/404.html.
+    const t = translations[lang].caseStudy;
+    return { title: `${t.notFoundTitle} | ${SITE_NAME}`, description: t.notFoundText, path: '/', image: '/og/home.jpg', noindex: true };
   }
   const name = isFilled(p.text.title) ? p.text.title : `${p.name}: ${p.category}`;
   const client = isFilled(p.client) ? p.client : p.name;
