@@ -1,7 +1,83 @@
 @import "tailwindcss";
 
 @theme {
+  /* Legacy font, still used by the current site. Replaced by
+     --font-display / --font-body in Stage 3. */
   --font-sans: "Kanit", sans-serif;
+
+  /* ---------------------------------------------------------------
+     Redesign design system (Stage 1). Nothing below changes the
+     current look until components start using these tokens.
+     --------------------------------------------------------------- */
+
+  /* Surfaces: one dark/light pairing for the whole site */
+  --color-surface: #14191C;        /* blue-charcoal page background */
+  --color-surface-raised: #1C2327; /* cards, header on scroll */
+  --color-surface-line: #2A3338;   /* hairlines, card borders on dark */
+  --color-paper: #EDEDED;          /* light sections */
+  --color-paper-line: #D4D7D9;     /* hairlines on light */
+
+  /* Text. Ratios measured against the surface they sit on. */
+  --color-fg: #D9E0E4;             /* body on dark      13.3:1 */
+  --color-fg-muted: #9AA6AD;       /* secondary on dark  7.1:1 */
+  --color-ink: #14191C;            /* body on light     15.1:1 */
+  --color-ink-muted: #4D5A61;      /* secondary on light 6.1:1 */
+
+  /* Accent: PENDING DECISION (option A, B or C in
+     docs/redesign/accent-options.html). Option A is the placeholder.
+     accent       = on dark (links, buttons, key words)
+     accent-ink   = the same hue darkened for light sections
+     accent-fg    = text placed ON an accent button               */
+  --color-accent: #31D57C;         /* 9.2:1 on surface */
+  --color-accent-ink: #0E7A43;     /* 4.6:1 on paper   */
+  --color-accent-fg: #14191C;      /* 9.2:1 on accent  */
+  --color-accent-support: #73E0E3; /* sparing secondary tone */
+
+  /* Typography (fonts loaded in Stage 3) */
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid type scale, body never below 16px */
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+  --text-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --text-h3--line-height: 1.25;
+  --text-h2: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  --text-h2--line-height: 1.1;
+  --text-h1: clamp(2.5rem, 1.6rem + 3.8vw, 5rem);
+  --text-h1--line-height: 1.05;
+
+  /* Layout. Spacing stays on Tailwind's 4px base, so even steps
+     (p-2, p-4, p-6 ...) give the 8px scale. */
+  --container-content: 75rem;      /* 1200px max content width */
+  --radius-card: 1rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Consistent section rhythm: 64px mobile, 96px tablet, 128px desktop */
+@utility section-pad {
+  padding-block: 4rem;
+  @media (width >= 48rem) { padding-block: 6rem; }
+  @media (width >= 80rem) { padding-block: 8rem; }
+}
+
+/* Centred content column with 16/32/40px gutters */
+@utility content-wrap {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) { padding-inline: 2rem; }
+  @media (width >= 64rem) { padding-inline: 2.5rem; }
+}
+
+/* 12-column grid with 24px gutters */
+@utility grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 1.5rem;
 }
 
 @layer base {

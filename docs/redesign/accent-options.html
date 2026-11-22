@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accent Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --surface:#14191C; --raised:#1C2327; --line:#2A3338;
+    --paper:#EDEDED; --paper-line:#D4D7D9;
+    --fg:#D9E0E4; --fg-muted:#9AA6AD; --ink:#14191C; --ink-muted:#4D5A61;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--surface);color:var(--fg);font:400 16px/1.6 "Be Vietnam Pro",system-ui,sans-serif}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  @media(min-width:640px){.wrap{padding:0 32px}}
+  header.intro{padding:56px 0 24px}
+  h1,h2,h3{font-family:Syne,system-ui,sans-serif;letter-spacing:-.01em}
+  .intro h1{font-size:clamp(28px,4vw,44px);line-height:1.1}
+  .intro p{color:var(--fg-muted);max-width:62ch;margin-top:12px}
+  .option{border-top:1px solid var(--line);padding:48px 0}
+  .tag{display:inline-flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-muted)}
+  .tag b{color:var(--a);font-weight:600}
+  .option>.wrap>h2{font-size:clamp(24px,3vw,32px);margin:8px 0 4px}
+  .why{color:var(--fg-muted);max-width:68ch}
+  .grid{display:grid;gap:24px;margin-top:32px;grid-template-columns:1fr}
+  @media(min-width:900px){.grid{grid-template-columns:7fr 5fr}}
+  /* dark mock */
+  .mock{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:20px}
+  .mock h3{font-size:clamp(26px,3.2vw,40px);line-height:1.08;color:var(--fg)}
+  .mock h3 em{font-style:normal;color:var(--a)}
+  .mock p{color:var(--fg-muted);max-width:46ch}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px}
+  .btn.primary{background:var(--a);color:var(--a-fg)}
+  .btn.ghost{border:1px solid var(--line);color:var(--fg)}
+  .btn:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+  a.link{color:var(--a);text-underline-offset:4px}
+  .card{background:var(--raised);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+  .card .body{padding:20px}
+  .card .cat{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--a)}
+  .card h4{font:700 20px/1.25 Syne,sans-serif;color:var(--fg);margin-top:6px}
+  .card .out{color:var(--fg-muted);font-size:15px;margin-top:4px}
+  /* light strip */
+  .light{grid-column:1/-1;background:var(--paper);color:var(--ink);border-radius:16px;padding:28px 32px;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between}
+  .light h4{font:700 22px/1.2 Syne,sans-serif}
+  .light h4 em{font-style:normal;color:var(--a-ink)}
+  .light p{color:var(--ink-muted);font-size:15px}
+  .light a{color:var(--a-ink);font-weight:600;text-underline-offset:4px}
+  .light .btn.primary{background:var(--ink);color:var(--paper)}
+  /* swatches */
+  .sw{grid-column:1/-1;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .chip{border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;color:var(--fg-muted)}
+  .chip i{display:block;height:44px;border-radius:8px;margin-bottom:10px}
+  .chip strong{display:block;color:var(--fg);font-size:14px;font-weight:600}
+  .ok{color:#7FE0A8}
+  footer{border-top:1px solid var(--line);padding:32px 0 64px;color:var(--fg-muted);font-size:14px}
+  @media (prefers-reduced-motion:no-preference){.card img{transition:transform .5s cubic-bezier(.22,1,.36,1)}.card:hover img{transform:scale(1.04)}}
+</style>
+</head>
+<body>
+<header class="intro wrap">
+  <span class="tag">Stage 1 · Pick one</span>
+  <h1>Three accent options, taken from your own work</h1>
+  <p>Each option is a single accent used only for buttons, links and key words, on the new blue-charcoal background (#14191C) with light #EDEDED sections. Headings are set in Syne and body text in Be Vietnam Pro. Every pairing shown passes WCAG AA.</p>
+</header>
+
+<!-- A -->
+<section class="option" style="--a:#31D57C;--a-ink:#0E7A43;--a-fg:#14191C">
+ <div class="wrap">
+  <span class="tag"><b>Option A</b> Ribbon Green · from "You Can" and Liverpool</span>
+  <h2>Fresh, calm, healthcare and growth</h2>
+  <p class="why">Taken from the World Cancer Day ribbon and the Liverpool clinic teal. It is the closest to your reference mood and pairs with an aqua support tone (#73E0E3). It feels fresh and trustworthy, but it is the most "tech-startup" of the three.</p>
+  <div class="grid">
+    <div class="mock">
+      <h3>Brand identities and campaigns for <em>growing businesses</em> across Dubai, Europe and Africa.</h3>
+      <p>I'm Bristin, a brand and graphic designer with 4+ years of experience turning briefs into identities people remember.</p>
+      <div class="btns"><a class="btn primary" href="#">See selected work</a><a class="btn ghost" href="#">Let's talk</a></div>
+      <p>Or read the <a class="link" href="#">GBA case study →</a></p>
+    </div>
+    <article class="card"><img src="../../public/images/projects/liverpool/liverpool-01.png" alt="You Can campaign: green ribbon on black"><div class="body"><span class="cat">Campaign</span><h4>You Can: World Cancer Day</h4><p class="out">One-line outcome goes here</p></div></article>
+    <div class="light"><div><h4>Ready to build a brand that <em>performs</em>?</h4><p>Light section example: the accent switches to its ink shade.</p></div><div class="btns"><a class="btn primary" href="#">Start a project</a><a href="#">View all work →</a></div></div>
+    <div class="sw">
+      <div class="chip"><i style="background:#31D57C"></i><strong>#31D57C accent</strong><span class="ok">9.2:1</span> on charcoal</div>
+      <div class="chip"><i style="background:#0E7A43"></i><strong>#0E7A43 ink</strong><span class="ok">4.6:1</span> on #EDEDED</div>
+      <div class="chip"><i style="background:#73E0E3"></i><strong>#73E0E3 support</strong>used sparingly</div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- B -->
+<section class="option" style="--a:#F2B53A;--a-ink:#8A5A00;--a-fg:#14191C">
+ <div class="wrap">
+  <span class="tag"><b>Option B</b> Harvest Gold · from Divine Favour, Forti and Javvy's</span>
+  <h2>Warm, premium, rooted</h2>
+  <p class="why">Gold is the most common vivid colour across your portfolio: it leads four of the eight projects. On charcoal it reads as premium and confident, it feels the most "studio", and it ties your African FMCG work together.</p>
+  <div class="grid">
+    <div class="mock">
+      <h3>Brand identities and campaigns for <em>growing businesses</em> across Dubai, Europe and Africa.</h3>
+      <p>I'm Bristin, a brand and graphic designer with 4+ years of experience turning briefs into identities people remember.</p>
+      <div class="btns"><a class="btn primary" href="#">See selected work</a><a class="btn ghost" href="#">Let's talk</a></div>
+      <p>Or read the <a class="link" href="#">GBA case study →</a></p>
+    </div>
+    <article class="card"><img src="../../public/images/projects/devine-social/FB Cover.jpg" alt="Divine Favour social cover in gold"><div class="body"><span class="cat">Social media</span><h4>Divine Favour</h4><p class="out">One-line outcome goes here</p></div></article>
+    <div class="light"><div><h4>Ready to build a brand that <em>performs</em>?</h4><p>Light section example: the accent switches to its ink shade.</p></div><div class="btns"><a class="btn primary" href="#">Start a project</a><a href="#">View all work →</a></div></div>
+    <div class="sw">
+      <div class="chip"><i style="background:#F2B53A"></i><strong>#F2B53A accent</strong><span class="ok">9.7:1</span> on charcoal</div>
+      <div class="chip"><i style="background:#8A5A00"></i><strong>#8A5A00 ink</strong><span class="ok">5.1:1</span> on #EDEDED</div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- C -->
+<section class="option" style="--a:#FF5A4E;--a-ink:#B3261E;--a-fg:#14191C">
+ <div class="wrap">
+  <span class="tag"><b>Option C</b> Signal Red · from GBA and Javvy's</span>
+  <h2>Bold, energetic, campaign-led</h2>
+  <p class="why">Taken from the GBA "Think Global" red and the Javvy's background, brightened so it passes contrast on charcoal. It has the most energy and stands out the most, but it needs restraint because red can read as an error colour in forms.</p>
+  <div class="grid">
+    <div class="mock">
+      <h3>Brand identities and campaigns for <em>growing businesses</em> across Dubai, Europe and Africa.</h3>
+      <p>I'm Bristin, a brand and graphic designer with 4+ years of experience turning briefs into identities people remember.</p>
+      <div class="btns"><a class="btn primary" href="#">See selected work</a><a class="btn ghost" href="#">Let's talk</a></div>
+      <p>Or read the <a class="link" href="#">GBA case study →</a></p>
+    </div>
+    <article class="card"><img src="../../public/images/projects/javvis-designs/01.jpg" alt="Javvy's logo in yellow on red"><div class="body"><span class="cat">Branding</span><h4>Javvy's: Nature's Joy</h4><p class="out">One-line outcome goes here</p></div></article>
+    <div class="light"><div><h4>Ready to build a brand that <em>performs</em>?</h4><p>Light section example: the accent switches to its ink shade.</p></div><div class="btns"><a class="btn primary" href="#">Start a project</a><a href="#">View all work →</a></div></div>
+    <div class="sw">
+      <div class="chip"><i style="background:#FF5A4E"></i><strong>#FF5A4E accent</strong><span class="ok">5.8:1</span> on charcoal</div>
+      <div class="chip"><i style="background:#B3261E"></i><strong>#B3261E ink</strong><span class="ok">5.6:1</span> on #EDEDED</div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<footer class="wrap">Text on accent buttons is charcoal #14191C in every option, at 5.8:1 or higher. The placeholder in src/index.css is Option A until you choose.</footer>
+</body>
+</html>
