@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { stripLang } from '../lib/locale';
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -25,8 +26,12 @@ export default function ScrollManager() {
   const prevPath = useRef<string | null>(null);
 
   useEffect(() => {
-    const samePage = prevPath.current === pathname;
+    const prev = prevPath.current;
+    const samePage = prev === pathname;
     prevPath.current = pathname;
+
+    // EN <-> FR switch of the same page: keep the reader where they are.
+    if (prev !== null && !samePage && stripLang(prev) === stripLang(pathname)) return;
 
     if (!hash) {
       if (!samePage) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

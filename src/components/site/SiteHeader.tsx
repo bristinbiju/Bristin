@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage, type Language } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
+import { stripLang } from '../../lib/locale';
 import { scrollToSection } from '../ScrollManager';
 
-const langs: { code: Language; label: string; aria: string }[] = [
-  { code: 'en', label: 'EN', aria: 'Switch to English' },
-  { code: 'fr', label: 'FR', aria: 'Passer en français' },
+const langs: { code: Language; label: string; name: string }[] = [
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'fr', label: 'FR', name: 'Français' },
 ];
 
 /** Which nav item each home-page section belongs to. */
@@ -50,10 +51,10 @@ function useActiveSection(enabled: boolean) {
 
 /** Sticky site header used on every page. */
 export default function SiteHeader() {
-  const { language, setLanguage } = useLanguage();
+  const { language, lp, pathFor } = useLanguage();
   const { pathname, hash } = useLocation();
   const t = translations[language].nav;
-  const onHome = pathname === '/';
+  const onHome = stripLang(pathname) === '/';
   const active = useActiveSection(onHome);
 
   const links = [
@@ -66,21 +67,21 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-surface-line bg-surface/85 backdrop-blur-md">
       <div className="content-wrap flex h-16 items-center justify-between gap-3">
         <Link
-          to="/"
+          to={lp('/')}
           onClick={() => onHome && !hash && window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="font-display text-lg font-bold tracking-tight text-fg"
         >
           Bristin Biju
         </Link>
 
-        <nav aria-label="Main" className="flex items-center gap-4 sm:gap-8">
+        <nav aria-label={t.main} className="flex items-center gap-4 sm:gap-8">
           <ul className="flex items-center gap-4 sm:gap-8 text-sm font-medium">
             {links.map((l) => {
               const isActive = active === l.id;
               return (
                 <li key={l.id} className={l.mobile ? '' : 'hidden sm:block'}>
                   <Link
-                    to={`/#${l.id}`}
+                    to={lp(`/#${l.id}`)}
                     // Clicking the link for the hash already in the URL would do nothing, so scroll manually.
                     onClick={() => onHome && hash === `#${l.id}` && scrollToSection(l.id)}
                     aria-current={isActive ? 'location' : undefined}
@@ -95,22 +96,28 @@ export default function SiteHeader() {
             })}
           </ul>
 
-          <div role="group" aria-label="Language" className="flex items-center rounded-full border border-surface-line p-0.5 text-xs font-semibold">
-            {langs.map((l) => (
-              <button
-                key={l.code}
-                type="button"
-                onClick={() => setLanguage(l.code)}
-                aria-pressed={language === l.code}
-                aria-label={l.aria}
-                className={`min-h-8 min-w-9 rounded-full px-2 transition-colors ${
-                  language === l.code ? 'bg-fg text-surface' : 'text-fg-muted hover:text-fg'
-                }`}
-              >
-                {l.label}
-              </button>
-            ))}
-          </div>
+          {/* Real links (not buttons) so crawlers and visitors can reach each language's URL. */}
+          <ul aria-label={t.language} className="flex items-center rounded-full border border-surface-line p-0.5 text-xs font-semibold">
+            {langs.map((l) => {
+              const current = language === l.code;
+              return (
+                <li key={l.code}>
+                  <Link
+                    to={pathFor(l.code)}
+                    hrefLang={l.code}
+                    lang={l.code}
+                    aria-current={current ? 'page' : undefined}
+                    aria-label={l.name}
+                    className={`flex min-h-8 min-w-9 items-center justify-center rounded-full px-2 transition-colors ${
+                      current ? 'bg-fg text-surface' : 'text-fg-muted hover:text-fg'
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
       </div>
     </header>

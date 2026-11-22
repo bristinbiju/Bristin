@@ -6,7 +6,9 @@ export const translations = {
       about: "About",
       services: "Services",
       projects: "Work",
-      contact: "Contact"
+      contact: "Contact",
+      main: "Main",
+      language: "Language"
     },
     hero: {
       greeting: "Hi, i'm bristin",
@@ -17,7 +19,7 @@ export const translations = {
     },
     about: {
       title: "About me",
-      description: "With 4+ years of experience in fast-paced agencies across Dubai, Europe, and Africa, I specialize in bridging the gap between creative vision and market performance. I obsess over typography, layout, and the 'why' behind every pixel to deliver speed without sacrificing soul."
+      description: "I'm a brand and graphic designer based in Paris, with 4+ years of experience in fast-paced agencies across Dubai, Europe and Africa. I specialize in bridging the gap between creative vision and market performance, and I obsess over typography, layout and the 'why' behind every pixel to deliver speed without sacrificing soul."
     },
     services: {
       title: "Services",
@@ -69,7 +71,9 @@ export const translations = {
         titleAfter: " across Dubai, Europe and Africa.",
         lead: "Multidisciplinary graphic designer and brand strategist, bridging creative vision and market performance.",
         primary: "See selected work",
-        secondary: "Let's talk"
+        secondary: "Let's talk",
+        location: "Based in Paris, France · Open to international opportunities",
+        featuredLabel: "Featured projects"
       },
       proof: {
         label: "Brands I've designed for",
@@ -135,7 +139,11 @@ export const translations = {
         formNote: "This opens your email app with the message ready to send.",
         bookingLink: "",
         bookingLabel: "Book a call",
-        socialLabel: "Elsewhere"
+        socialLabel: "Elsewhere",
+        locationLabel: "Location",
+        location: "Paris, Île-de-France, France",
+        availability: "Open to new collaborations in Paris and international opportunities.",
+        cta: "Start a project"
       }
     },
     caseStudy: {
@@ -160,6 +168,8 @@ export const translations = {
       openImage: "Open image",
       notFoundTitle: "Project not found",
       notFoundText: "This project doesn't exist or has moved.",
+      glanceLabel: "At a glance",
+      projectsNavLabel: "More projects",
       skipToContent: "Skip to content"
     },
     caseStudies: caseStudiesEn,
@@ -172,7 +182,9 @@ export const translations = {
       about: "À propos",
       services: "Services",
       projects: "Projets",
-      contact: "Contact"
+      contact: "Contact",
+      main: "Principal",
+      language: "Langue"
     },
     hero: {
       greeting: "Bonjour\nje suis Bristin",
@@ -183,7 +195,7 @@ export const translations = {
     },
     about: {
       title: "À propos",
-      description: "Avec plus de 4 ans d'expérience dans des agences dynamiques à travers Dubaï, l'Europe et l'Afrique, je me spécialise dans la création de ponts entre la vision créative et la performance sur le marché. Je suis passionné par la typographie, la mise en page et le 'pourquoi' derrière chaque pixel afin de livrer rapidement sans sacrifier l'âme du projet."
+      description: "Graphiste et designer de marque basé à Paris, j'ai plus de 4 ans d'expérience en agences dynamiques à Dubaï, en Europe et en Afrique. Je fais le lien entre vision créative et performance sur le marché, avec une attention obsessionnelle à la typographie, à la mise en page et au « pourquoi » derrière chaque pixel, pour livrer vite sans sacrifier l'âme du projet."
     },
     services: {
       title: "Services",
@@ -235,7 +247,9 @@ export const translations = {
         titleAfter: " à Dubaï, en Europe et en Afrique.",
         lead: "Graphiste multidisciplinaire et stratège de marque, entre vision créative et performance sur le marché.",
         primary: "Voir les projets",
-        secondary: "Discutons"
+        secondary: "Discutons",
+        location: "Basé à Paris, France · Ouvert aux opportunités internationales",
+        featuredLabel: "Projets à la une"
       },
       proof: {
         label: "Marques pour lesquelles j'ai créé",
@@ -301,7 +315,11 @@ export const translations = {
         formNote: "Cela ouvre votre messagerie avec le message prêt à envoyer.",
         bookingLink: "",
         bookingLabel: "Réserver un appel",
-        socialLabel: "Ailleurs"
+        socialLabel: "Ailleurs",
+        locationLabel: "Localisation",
+        location: "Paris, Île-de-France, France",
+        availability: "Ouvert à de nouvelles collaborations à Paris et aux opportunités internationales.",
+        cta: "Démarrer un projet"
       }
     },
     caseStudy: {
@@ -326,6 +344,8 @@ export const translations = {
       openImage: "Ouvrir l'image",
       notFoundTitle: "Projet introuvable",
       notFoundText: "Ce projet n'existe pas ou a été déplacé.",
+      glanceLabel: "En bref",
+      projectsNavLabel: "Autres projets",
       skipToContent: "Aller au contenu"
     },
     caseStudies: caseStudiesFr,

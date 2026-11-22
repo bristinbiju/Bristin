@@ -82,7 +82,7 @@ function Shell({ children }: { children: ReactNode }) {
 }
 
 function NotFound() {
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
   const t = translations[language].caseStudy;
   usePageMeta(pageMeta(language, '__missing__'));
   return (
@@ -90,7 +90,7 @@ function NotFound() {
       <main id="main" className="content-wrap section-pad">
         <h1 className="font-display text-h2 font-bold">{t.notFoundTitle}</h1>
         <p className="mt-4 text-fg-muted">{t.notFoundText}</p>
-        <Link to="/#projects" className="mt-8 inline-flex items-center gap-2 font-semibold text-accent hover:underline">
+        <Link to={lp('/#projects')} className="mt-8 inline-flex items-center gap-2 font-semibold text-accent hover:underline">
           <ArrowLeft size={18} aria-hidden /> {t.backToWork}
         </Link>
       </main>
@@ -110,7 +110,7 @@ export default function CaseStudyPage() {
 }
 
 function CaseStudy({ project, prev, next }: { project: Project; prev: Project; next: Project }) {
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
   const t = translations[language].caseStudy;
   const cats = translations[language].projects.categories;
   const email = translations[language].contact.emailLabel;
@@ -181,7 +181,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
         {/* ---------- Hero ---------- */}
         <section className="content-wrap pt-10 pb-12 md:pt-16 md:pb-16">
           <Link
-            to="/#projects"
+            to={lp('/#projects')}
             className="inline-flex items-center gap-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg"
           >
             <ArrowLeft size={16} aria-hidden /> {t.backToWork}
@@ -222,7 +222,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
         </section>
 
         {/* ---------- At a glance ---------- */}
-        <section aria-label="At a glance" className="content-wrap">
+        <section aria-label={t.glanceLabel} className="content-wrap">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-8 border-y border-surface-line py-10 sm:grid-cols-2 lg:grid-cols-5">
             {glance
               .filter((g) => g.ok || SHOW_DRAFTS)
@@ -356,7 +356,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
         )}
 
         {/* ---------- Prev / next ---------- */}
-        <nav aria-label="Projects" className="content-wrap border-t border-surface-line py-12">
+        <nav aria-label={t.projectsNavLabel} className="content-wrap border-t border-surface-line py-12">
           <ul className="grid gap-4 sm:grid-cols-2">
             {[
               { p: prev, label: t.previous, icon: <ArrowLeft size={16} aria-hidden />, align: '' },
@@ -364,7 +364,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
             ].map(({ p, label, icon, align }) => (
               <li key={label}>
                 <Link
-                  to={`/work/${p.slug}`}
+                  to={lp(`/work/${p.slug}`)}
                   className={`group flex items-center gap-4 rounded-card border border-surface-line bg-surface-raised p-4 transition-colors hover:border-accent/60 ${align}`}
                 >
                   <Img src={p.cover} alt="" sizes="80px" className="h-16 w-20 shrink-0 rounded-lg object-cover" />

@@ -15,7 +15,7 @@ const Eyebrow = ({ children }: { children: React.ReactNode }) => (
 /* ---------- Selected work: large cards ---------- */
 
 function FeatureCard({ project, large }: { project: Project; large: boolean }) {
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
   const t = translations[language];
   const x = project.text;
   const title = isFilled(x.title) ? x.title : project.name;
@@ -23,7 +23,7 @@ function FeatureCard({ project, large }: { project: Project; large: boolean }) {
   const tags = project.tags.map((k) => t.projects.categories[k]).join(' · ');
 
   return (
-    <Link to={`/work/${project.slug}`} className="group block">
+    <Link to={lp(`/work/${project.slug}`)} className="group block">
       <div className="overflow-hidden rounded-card bg-surface-raised">
         <Img
           src={project.cover}
@@ -78,7 +78,7 @@ export function SelectedWork({ featured }: { featured: Project[] }) {
 const filterOrder: CategoryKey[] = ['branding', 'campaign', 'packaging', 'socialMedia'];
 
 export function ProjectIndex({ projects }: { projects: Project[] }) {
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
   const t = translations[language];
   const [filter, setFilter] = useState<CategoryKey | 'all'>('all');
   const labels: Record<CategoryKey, string> = {
@@ -122,7 +122,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
         <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
           {shown.map((p) => (
             <li key={p.slug}>
-              <Link to={`/work/${p.slug}`} className="group block">
+              <Link to={lp(`/work/${p.slug}`)} className="group block">
                 <div className="overflow-hidden rounded-card bg-surface-raised">
                   <Img
                     src={p.cover}

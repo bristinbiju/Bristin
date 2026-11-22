@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail, MapPin } from 'lucide-react';
 import Reveal from '../site/Reveal';
 import Todo from '../site/Todo';
 import Img from '../site/Img';
@@ -124,9 +124,25 @@ export function Contact() {
           </h2>
           <p className="mt-6 max-w-[48ch] text-lead text-fg-muted">{t.contact.subtext}</p>
 
+          <p className="mt-8 flex items-start gap-2 font-medium text-fg">
+            <MapPin size={20} aria-hidden className="mt-0.5 shrink-0 text-accent" />
+            <span>
+              <span className="sr-only">{c.locationLabel}: </span>
+              {c.location}
+            </span>
+          </p>
+          <p className="mt-2 max-w-[48ch] text-fg-muted">{c.availability}</p>
+
+          <a
+            href={`mailto:${email}?subject=${encodeURIComponent(c.cta)}`}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 motion-reduce:transition-none"
+          >
+            {c.cta} <ArrowUpRight size={18} aria-hidden />
+          </a>
+
           <a
             href={`mailto:${email}`}
-            className="group mt-10 inline-flex max-w-full items-center gap-3 break-all font-display text-xl font-bold text-fg hover:text-accent sm:text-2xl"
+            className="group mt-6 flex w-fit max-w-full items-center gap-3 break-all font-display text-xl font-bold text-fg hover:text-accent sm:text-2xl"
           >
             <Mail size={24} aria-hidden className="shrink-0 text-accent" />
             {email}

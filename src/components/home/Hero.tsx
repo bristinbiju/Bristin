@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, MapPin } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 import type { Project } from '../../data/projects';
@@ -11,7 +11,7 @@ import Img from '../site/Img';
  * it paints straight from the HTML (fastest LCP, nothing to wait for).
  */
 export default function Hero({ featured }: { featured: Project[] }) {
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
   const t = translations[language].home.hero;
   const thumbs = featured.slice(0, 3);
 
@@ -33,29 +33,33 @@ export default function Hero({ featured }: { featured: Project[] }) {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              to="/#work"
+              to={lp('/#work')}
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 motion-reduce:transition-none"
             >
               {t.primary} <ArrowDown size={18} aria-hidden />
             </Link>
             <Link
-              to="/#contact"
+              to={lp('/#contact')}
               className="inline-flex items-center gap-2 rounded-full border border-surface-line px-6 py-3 font-semibold text-fg transition-colors hover:border-fg-muted"
             >
               {t.secondary} <ArrowUpRight size={18} aria-hidden />
             </Link>
           </div>
+          <p className="mt-8 flex items-start gap-2 text-sm text-fg-muted">
+            <MapPin size={16} aria-hidden className="mt-0.5 shrink-0 text-accent" />
+            {t.location}
+          </p>
         </div>
 
         {/* Three featured projects: one tall + two stacked */}
         <ul
-          aria-label="Featured projects"
+          aria-label={t.featuredLabel}
           className="col-span-12 grid grid-cols-3 gap-3 lg:col-span-5 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4"
         >
           {thumbs.map((p, i) => (
             <li key={p.slug} className={i === 0 ? 'lg:row-span-2' : ''}>
               <Link
-                to={`/work/${p.slug}`}
+                to={lp(`/work/${p.slug}`)}
                 className="group relative block h-full overflow-hidden rounded-card bg-surface-raised"
               >
                 <Img

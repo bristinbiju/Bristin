@@ -6,7 +6,7 @@ import { translations } from '../../data/translations';
 import type { Project } from '../../data/projects';
 
 export function Services({ projects }: { projects: Project[] }) {
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
   const t = translations[language].home.services;
   const nameOf = (slug: string) => projects.find((p) => p.slug === slug)?.name;
 
@@ -30,7 +30,7 @@ export function Services({ projects }: { projects: Project[] }) {
                 <p className="mt-3 flex-1 text-fg-muted">{s.desc}</p>
                 {project && (
                   <Link
-                    to={`/work/${s.slug}`}
+                    to={lp(`/work/${s.slug}`)}
                     className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-fg hover:text-accent"
                   >
                     {t.seeProject} {project}

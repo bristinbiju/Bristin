@@ -1,47 +1,40 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { langFromPath, localizePath, stripLang, type Language } from '../lib/locale';
 
-export type Language = 'en' | 'fr';
+export type { Language } from '../lib/locale';
 
 interface LanguageContextType {
+  /** Current language, read from the URL (/fr/... = French). */
   language: Language;
-  setLanguage: (lang: Language) => void;
+  /** Turns a language-neutral path ('/', '/#work', '/work/gba') into one for the current language. */
+  lp: (path: string) => string;
+  /** The current page in another language (keeps the #section). */
+  pathFor: (lang: Language) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>('en');
+  const { pathname, hash } = useLocation();
+  const language = langFromPath(pathname);
 
-  useEffect(() => {
-    // Check if there is a saved language in local storage
-    const savedLang = localStorage.getItem('portfolio-language') as Language | null;
-    
-    // Optionally check browser language if nothing is saved
-    if (!savedLang) {
-      const browserLang = navigator.language.slice(0, 2);
-      if (browserLang === 'fr') {
-        setLanguageState('fr');
-      }
-    } else {
-      setLanguageState(savedLang);
-    }
-  }, []);
-
-  // Keep <html lang> in sync so screen readers and translators use the right language.
+  // Keep <html lang> in sync on client-side navigation (pre-rendered pages already have it).
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem('portfolio-language', lang);
+  const value: LanguageContextType = {
+    language,
+    lp: (path) => localizePath(path, language),
+    pathFor: (lang) => {
+      const neutral = stripLang(pathname);
+      const target = localizePath(neutral, lang);
+      return hash ? `${target}${hash}` : target;
+    },
   };
 
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
 
 export const useLanguage = () => {

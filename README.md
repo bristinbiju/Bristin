@@ -49,6 +49,24 @@ src/
 docs/redesign/           Redesign notes: audit, accent options, content checklist
 ```
 
+## Languages and SEO
+
+Language comes from the URL, so both versions are crawlable and shareable:
+
+| English (default) | French |
+|---|---|
+| `/` | `/fr` |
+| `/work/gba` | `/fr/work/gba` |
+
+- The EN/FR switch in the header uses real links (`hreflang`) and keeps you on the same page and section.
+- Use `lp('/work/gba')` from `useLanguage()` for internal links, so they stay in the current language.
+- `src/data/seo.ts` holds every page title and description, the canonical/hreflang URLs and
+  the schema.org `Person` data. The browser (`usePageMeta`) and the build
+  (`scripts/build-meta.mjs`) both use it, so they always match.
+- Each built page has its own `<html lang>`, a self-referencing canonical,
+  `hreflang` links for en, fr and x-default, `og:locale`, and a sitemap entry with
+  its language alternates. Unknown URLs get `404.html` (`noindex`, no canonical).
+
 ## Design system
 
 All tokens live in `src/index.css` under `@theme`. Use the Tailwind utilities they

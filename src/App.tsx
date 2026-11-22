@@ -24,6 +24,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/work/:slug" element={<CaseStudyPage />} />
+            {/* French: same pages under /fr (language is read from the URL) */}
+            <Route path="/fr" element={<HomePage />} />
+            <Route path="/fr/work/:slug" element={<CaseStudyPage />} />
             <Route path="*" element={<CaseStudyPage />} />
           </Routes>
         </LanguageProvider>
