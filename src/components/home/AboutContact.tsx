@@ -28,7 +28,15 @@ export function About() {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{a.eyebrow}</p>
           <h2 id="about-title" className="mt-4 font-display text-h2 font-bold text-fg">{a.title}</h2>
           <p className="mt-6 max-w-[62ch] text-lead text-fg-muted">{t.about.description}</p>
-          <p className="mt-10 text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted">{a.toolsLabel}</p>
+          <p className="mt-10 text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted">{a.skillsLabel}</p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {a.skills.map((skill) => (
+              <li key={skill} className="rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm text-fg">
+                {skill}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-fg-muted">{a.toolsLabel}</p>
           <ul className="mt-4 flex flex-wrap gap-2">
             {a.tools.map((tool) => (
               <li key={tool} className="rounded-full border border-surface-line px-4 py-1.5 text-sm text-fg">

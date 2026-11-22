@@ -114,8 +114,10 @@ export const translations = {
         eyebrow: "About",
         title: "Hi, I'm Bristin.",
         photoAlt: "Portrait of Bristin Biju",
+        skillsLabel: "Skills",
+        skills: ["AI-Assisted Web Development", "Vibe Coding", "Prompt Engineering", "AI-Powered Creative Workflows"],
         toolsLabel: "Tools",
-        tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer"]
+        tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer", "ChatGPT", "Claude", "Antigravity", "VS Code", "GitHub", "Vercel"]
       },
       testimonials: {
         title: "What clients say",
@@ -276,8 +278,10 @@ export const translations = {
         eyebrow: "À propos",
         title: "Bonjour, je suis Bristin.",
         photoAlt: "Portrait de Bristin Biju",
+        skillsLabel: "Compétences",
+        skills: ["Développement web assisté par l'IA", "Vibe coding", "Prompt engineering", "Workflows créatifs propulsés par l'IA"],
         toolsLabel: "Outils",
-        tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer"]
+        tools: ["Adobe Creative Suite", "Premiere Pro", "After Effects", "Figma", "Framer", "ChatGPT", "Claude", "Antigravity", "VS Code", "GitHub", "Vercel"]
       },
       testimonials: {
         title: "Ce qu'en disent les clients",
