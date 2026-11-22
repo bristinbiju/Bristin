@@ -1,47 +1,37 @@
 import { Link } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 import type { Project } from '../../data/projects';
 import Img from '../site/Img';
 
-/** Hero: positioning line, two actions, three featured thumbnails. */
+/**
+ * Hero: positioning line, two actions, three featured thumbnails.
+ * No entrance animation on purpose: it is pre-rendered and above the fold, so
+ * it paints straight from the HTML (fastest LCP, nothing to wait for).
+ */
 export default function Hero({ featured }: { featured: Project[] }) {
   const { language } = useLanguage();
-  const reduce = useReducedMotion();
   const t = translations[language].home.hero;
   const thumbs = featured.slice(0, 3);
-
-  const enter = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
-        };
 
   return (
     <section id="top" aria-labelledby="hero-title" className="content-wrap pt-12 pb-16 md:pt-20 md:pb-24">
       <div className="grid-12 items-center gap-y-12">
         <div className="col-span-12 lg:col-span-7">
-          <motion.p {...enter(0)} className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-            {t.eyebrow}
-          </motion.p>
-          <motion.h1
-            {...enter(0.08)}
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{t.eyebrow}</p>
+          <h1
             id="hero-title"
             className="mt-5 font-display text-h1 font-bold tracking-tight text-fg [text-wrap:balance]"
           >
             {t.titleBefore}
             <span className="text-accent">{t.titleAccent}</span>
             {t.titleAfter}
-          </motion.h1>
-          <motion.p {...enter(0.16)} className="mt-6 max-w-[52ch] text-lead text-fg-muted">
+          </h1>
+          <p className="mt-6 max-w-[52ch] text-lead text-fg-muted">
             {t.lead}
-          </motion.p>
-          <motion.div {...enter(0.24)} className="mt-10 flex flex-wrap gap-3">
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
             <Link
               to="/#work"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 motion-reduce:transition-none"
@@ -54,12 +44,11 @@ export default function Hero({ featured }: { featured: Project[] }) {
             >
               {t.secondary} <ArrowUpRight size={18} aria-hidden />
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* Three featured projects: one tall + two stacked */}
-        <motion.ul
-          {...enter(0.3)}
+        <ul
           aria-label="Featured projects"
           className="col-span-12 grid grid-cols-3 gap-3 lg:col-span-5 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4"
         >
@@ -85,7 +74,7 @@ export default function Hero({ featured }: { featured: Project[] }) {
               </Link>
             </li>
           ))}
-        </motion.ul>
+        </ul>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@
  *   npm run images          only process new or changed originals
  *   npm run images -- --all reprocess everything
  *
- * Each original becomes two WebP files, `<name>-800.webp` and `<name>-1600.webp`,
+ * Each original becomes three WebP files, `<name>-400|800|1600.webp`,
  * at the same relative path. Logos (`logo.*`) get their transparent padding
  * trimmed first. The manifest stores each image's size so pages can set
  * width/height and avoid layout shift.
@@ -20,7 +20,7 @@ import sharp from 'sharp';
 const SRC = 'images-src';
 const OUT = 'public/images';
 const MANIFEST = 'src/data/image-manifest.json';
-const WIDTHS = [800, 1600];
+const WIDTHS = [400, 800, 1600];
 const MAX_BYTES = 400 * 1024;
 const all = process.argv.includes('--all');
 
@@ -67,7 +67,7 @@ for (const file of walk(SRC).filter((f) => /\.(png|jpe?g|webp)$/i.test(f)).sort(
     fs.writeFileSync(outputs[i], buf);
     largest = buf;
   }
-  const meta = await sharp(largest).metadata();
+  const meta = await sharp(largest).metadata(); // largest = the 1600 output
   manifest[key] = { w: meta.width, h: meta.height };
   made++;
 }

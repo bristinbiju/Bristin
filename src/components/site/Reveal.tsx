@@ -1,7 +1,11 @@
 import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m } from 'framer-motion';
 
-/** Subtle fade-up when scrolled into view. Renders static content under prefers-reduced-motion. */
+/**
+ * Subtle fade-up when scrolled into view. Reduced motion is handled globally by
+ * <MotionConfig reducedMotion="user"> (opacity only, no movement), so the
+ * pre-rendered HTML and the client render always match.
+ */
 export default function Reveal({
   children,
   className = '',
@@ -13,10 +17,7 @@ export default function Reveal({
   as?: 'div' | 'li';
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
-  const Tag = as;
-  if (reduce) return <Tag className={className}>{children}</Tag>;
-  const M = as === 'li' ? motion.li : motion.div;
+  const M = as === 'li' ? m.li : m.div;
   return (
     <M
       className={className}

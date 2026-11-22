@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m } from 'framer-motion';
+import { appState } from '../lib/appState';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import SiteHeader from '../components/site/SiteHeader';
 import SiteFooter from '../components/site/SiteFooter';
@@ -13,6 +14,7 @@ import { translations } from '../data/translations';
 import { getProjects, type Project } from '../data/projects';
 import { SHOW_DRAFTS, filledList, isFilled } from '../data/content';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { COVER_SIZES, pageMeta } from '../data/seo';
 
 /* ---------- small building blocks ---------- */
 
@@ -82,7 +84,7 @@ function Shell({ children }: { children: ReactNode }) {
 function NotFound() {
   const { language } = useLanguage();
   const t = translations[language].caseStudy;
-  usePageMeta(t.notFoundTitle);
+  usePageMeta({ ...pageMeta(language, '__missing__'), title: `${t.notFoundTitle} | Bristin Biju` });
   return (
     <Shell>
       <main id="main" className="content-wrap section-pad">
@@ -109,14 +111,13 @@ export default function CaseStudyPage() {
 
 function CaseStudy({ project, prev, next }: { project: Project; prev: Project; next: Project }) {
   const { language } = useLanguage();
-  const reduce = useReducedMotion();
   const t = translations[language].caseStudy;
   const cats = translations[language].projects.categories;
   const email = translations[language].contact.emailLabel;
   const x = project.text;
 
   const title = isFilled(x.title) ? x.title : project.name;
-  usePageMeta(title, isFilled(x.summary) ? x.summary : undefined);
+  usePageMeta(pageMeta(language, project.slug));
 
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
   const openInGallery = (src: string) => {
@@ -170,9 +171,10 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
 
   return (
     <Shell>
-      <motion.main
+      <m.main
         id="main"
-        initial={reduce ? false : { opacity: 0 }}
+        // First load shows the pre-rendered page as-is; later navigations fade in.
+        initial={appState.ready ? { opacity: 0 } : false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
@@ -214,6 +216,7 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
             label={t.openImage}
             onOpen={() => openInGallery(project.cover)}
             className="mt-12 aspect-[4/3] md:aspect-[16/9]"
+            sizes={COVER_SIZES}
             eager
           />
         </section>
@@ -394,11 +397,15 @@ function CaseStudy({ project, prev, next }: { project: Project; prev: Project; n
             </a>
           </div>
         </section>
-      </motion.main>
+      </m.main>
 
       <Lightbox
         isOpen={!!lightbox}
         images={(lightbox?.images ?? []).map((src) => imgUrl(src, 1600))}
+        alts={(lightbox?.images ?? []).map((src, i) => {
+          const caption = showcase.find((s) => s.image === src)?.caption;
+          return alt(caption, i + 1);
+        })}
         initialIndex={lightbox?.index ?? 0}
         onClose={() => setLightbox(null)}
       />

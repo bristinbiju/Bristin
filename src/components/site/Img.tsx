@@ -4,12 +4,14 @@ import manifest from '../../data/image-manifest.json';
 /**
  * Images are referenced by their base path without size or extension,
  * e.g. '/images/projects/gba/01'. `npm run images` generates
- * `<base>-800.webp` and `<base>-1600.webp` and records their size in
+ * `<base>-400|800|1600.webp` and records their size in
  * image-manifest.json.
  */
 const sizes = manifest as Record<string, { w: number; h: number }>;
 
-export const imgUrl = (base: string, width: 800 | 1600 = 1600) => `${base}-${width}.webp`;
+export const imgUrl = (base: string, width: 400 | 800 | 1600 = 1600) => `${base}-${width}.webp`;
+const WIDTHS = [400, 800, 1600] as const;
+export const imgSrcSet = (base: string) => WIDTHS.map((w) => `${imgUrl(base, w)} ${w}w`).join(', ');
 
 type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet' | 'width' | 'height'> & {
   src: string;
@@ -23,7 +25,7 @@ export default function Img({ src, alt, sizes: sizesAttr = '100vw', priority = f
   return (
     <img
       src={imgUrl(src, 1600)}
-      srcSet={`${imgUrl(src, 800)} 800w, ${imgUrl(src, 1600)} 1600w`}
+      srcSet={imgSrcSet(src)}
       sizes={sizesAttr}
       width={dim?.w}
       height={dim?.h}

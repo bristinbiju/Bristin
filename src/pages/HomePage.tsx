@@ -9,6 +9,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import { getProjects } from '../data/projects';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { pageMeta } from '../data/seo';
 
 /**
  * Home page, one job per screen:
@@ -16,8 +17,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
  * → testimonials (hidden until real) → contact.
  */
 export default function HomePage() {
-  usePageMeta(); // restore the default title/description when coming back from a case study
   const { language } = useLanguage();
+  usePageMeta(pageMeta(language));
   const projects = getProjects(language);
   const featured = projects.filter((p) => p.featured);
 

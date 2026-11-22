@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/build-meta.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
-    "images": "node scripts/optimize-images.mjs",
+    "images": "node scripts/optimize-images.mjs && node scripts/build-og.mjs",
     "check:images": "node scripts/check-images.mjs"
   },
   "dependencies": {
+    "@fontsource/be-vietnam-pro": "^5.3.0",
+    "@fontsource/syne": "^5.3.0",
     "@tailwindcss/postcss": "^4.3.3",
     "framer-motion": "^13.1.0",
     "lucide-react": "^1.33.0",
