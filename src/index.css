@@ -132,6 +132,19 @@
   }
 }
 
+/* Scroll reveal (see components/site/Reveal.tsx). Content is visible by
+   default; the script only adds data-reveal="hidden" to elements still off
+   screen, then "shown" when they scroll into view. */
+[data-reveal] {
+  transition:
+    opacity 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
 /* Windows contrast themes / forced colours: the browser replaces our colours
    with the user's system colours; give pill buttons and tags an outline so
    they stay visible as shapes. */
