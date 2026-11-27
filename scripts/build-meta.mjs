@@ -25,6 +25,7 @@ try {
   const { projectsMeta } = await vite.ssrLoadModule('/src/data/projects.ts');
   const { pageMeta, personJsonLd, SITE_URL } = await vite.ssrLoadModule('/src/data/seo.ts');
   const { LANGUAGES, OG_LOCALE } = await vite.ssrLoadModule('/src/lib/locale.ts');
+  const { imgUrl, imgSrcSet } = await vite.ssrLoadModule('/src/lib/images.ts');
   const { render: renderApp } = await vite.ssrLoadModule('/src/entry-server.tsx');
 
   // Preload the latin font files the hero uses (Syne 700, Be Vietnam Pro 400/600) so they
@@ -78,8 +79,8 @@ try {
     if (meta.preloadImage) {
       // Lets the browser fetch the above-the-fold image before the JavaScript runs.
       const { src, sizes } = meta.preloadImage;
-      const srcset = [400, 800, 1600].map((w) => `${src}-${w}.webp ${w}w`).join(', ');
-      head.push(`<link rel="preload" as="image" href="${src}-1600.webp" imagesrcset="${attr(srcset)}" imagesizes="${attr(sizes)}" fetchpriority="high" />`);
+      // Same hashed URLs as the <img>, so the preload is reused.
+      head.push(`<link rel="preload" as="image" href="${attr(imgUrl(src, 1600))}" imagesrcset="${attr(imgSrcSet(src))}" imagesizes="${attr(sizes)}" fetchpriority="high" />`);
     }
     if (jsonLd) {
       head.push(`<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`);

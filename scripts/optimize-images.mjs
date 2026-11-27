@@ -7,7 +7,9 @@
  * Each original becomes three WebP files, `<name>-400|800|1600.webp`,
  * at the same relative path. Logos (`logo.*`) get their transparent padding
  * trimmed first. The manifest stores each image's size so pages can set
- * width/height and avoid layout shift.
+ * width/height and avoid layout shift, plus a content hash `v`: image URLs carry
+ * `?v=<hash>`, so a replaced image gets a new URL. (Images are cached as
+ * immutable for a year, so without it browsers would keep the old file.)
  *
  * To add an image: drop the original into images-src/<same folder>, run
  * `npm run images`, then reference it in code without an extension, e.g.
@@ -16,6 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
+import crypto from 'node:crypto';
 
 const SRC = 'images-src';
 const OUT = 'public/images';
@@ -70,6 +73,13 @@ for (const file of walk(SRC).filter((f) => /\.(png|jpe?g|webp)$/i.test(f)).sort(
   const meta = await sharp(largest).metadata(); // largest = the 1600 output
   manifest[key] = { w: meta.width, h: meta.height };
   made++;
+}
+
+// Content hash of each image's published files (cheap: reads the outputs).
+for (const key of seen) {
+  const hash = crypto.createHash('sha1');
+  for (const w of WIDTHS) hash.update(fs.readFileSync(path.join('public', `${key}-${w}.webp`)));
+  manifest[key] = { ...manifest[key], v: hash.digest('hex').slice(0, 8) };
 }
 
 // Drop manifest entries (and outputs) whose original is gone.

@@ -3,6 +3,7 @@ import { getProjects } from './projects';
 import { translations } from './translations';
 import { isFilled } from './content';
 import { LANGUAGES, OG_LOCALE, localizePath } from '../lib/locale';
+import { imgUrl, ogUrl } from '../lib/images';
 
 export const SITE_URL = 'https://bristin.world';
 const SITE_NAME = 'Bristin Biju';
@@ -49,7 +50,7 @@ const alternatesFor = (neutralPath: string) =>
 export function pageMeta(lang: Language, slug?: string): PageMeta {
   const base = { lang, ogLocale: OG_LOCALE[lang] };
   if (!slug) {
-    return { ...base, ...home[lang], path: localizePath('/', lang), alternates: alternatesFor('/'), image: '/og/home.jpg' };
+    return { ...base, ...home[lang], path: localizePath('/', lang), alternates: alternatesFor('/'), image: ogUrl('/og/home.jpg') };
   }
   const p = getProjects(lang).find((x) => x.slug === slug);
   if (!p) {
@@ -61,7 +62,7 @@ export function pageMeta(lang: Language, slug?: string): PageMeta {
       description: t.notFoundText,
       path: localizePath('/', lang),
       alternates: {},
-      image: '/og/home.jpg',
+      image: ogUrl('/og/home.jpg'),
       noindex: true,
     };
   }
@@ -79,7 +80,7 @@ export function pageMeta(lang: Language, slug?: string): PageMeta {
     description,
     path: localizePath(neutral, lang),
     alternates: alternatesFor(neutral),
-    image: `/og/${p.slug}.jpg`,
+    image: ogUrl(`/og/${p.slug}.jpg`),
     preloadImage: { src: p.cover, sizes: COVER_SIZES },
   };
 }
@@ -96,7 +97,7 @@ export function personJsonLd(lang: Language) {
     name: 'Bristin Biju',
     jobTitle: lang === 'fr' ? 'Graphiste & Designer de Marque' : 'Brand & Graphic Designer',
     url: SITE_URL,
-    image: `${SITE_URL}/images/about/photo-800.webp`,
+    image: `${SITE_URL}${imgUrl('/images/about/photo', 800)}`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',

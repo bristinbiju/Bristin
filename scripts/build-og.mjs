@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
+import crypto from 'node:crypto';
 import { loadProjects } from './lib/load-projects.mjs';
 
 const W = 1200;
@@ -69,4 +70,11 @@ const home = await jpeg(
   ]),
 );
 fs.writeFileSync(path.join(OUT, 'home.jpg'), home);
+
+// Content hashes, so share-image URLs change when an image changes (they're cached as immutable).
+const hashes = Object.fromEntries(
+  fs.readdirSync(OUT).filter((f) => f.endsWith('.jpg')).sort()
+    .map((f) => [`/og/${f}`, crypto.createHash('sha1').update(fs.readFileSync(path.join(OUT, f))).digest('hex').slice(0, 8)]),
+);
+fs.writeFileSync('src/data/og-manifest.json', JSON.stringify(hashes, null, 1) + '\n');
 console.log(`og: ${projectsMeta.length + 1} share images in ${OUT}/`);

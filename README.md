@@ -22,6 +22,8 @@ npm run preview    # serve dist/ locally
 | `npm run images` | Converts originals in `images-src/` to WebP (400/800/1600px) in `public/images/`, and generates the share images in `public/og/`. Run it after adding or changing any image. |
 | `npm run check:images` | Fails if the site references an image that hasn't been generated. |
 
+Image and share-image URLs include a content hash (`?v=…`, from `src/lib/images.ts`). They are cached for a year, so a replaced image only shows up because its URL changes. Always run `npm run images` after changing an image, then commit the updated manifests.
+
 ## Folder structure
 
 ```

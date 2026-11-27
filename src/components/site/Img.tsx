@@ -1,26 +1,18 @@
 import type { ImgHTMLAttributes } from 'react';
-import manifest from '../../data/image-manifest.json';
+import { imageInfo, imgSrcSet, imgUrl } from '../../lib/images';
 
-/**
- * Images are referenced by their base path without size or extension,
- * e.g. '/images/projects/gba/01'. `npm run images` generates
- * `<base>-400|800|1600.webp` and records their size in
- * image-manifest.json.
- */
-const sizes = manifest as Record<string, { w: number; h: number }>;
-
-export const imgUrl = (base: string, width: 400 | 800 | 1600 = 1600) => `${base}-${width}.webp`;
-const WIDTHS = [400, 800, 1600] as const;
-export const imgSrcSet = (base: string) => WIDTHS.map((w) => `${imgUrl(base, w)} ${w}w`).join(', ');
+// Re-exported for existing imports (CaseStudyPage's lightbox).
+export { imgUrl, imgSrcSet };
 
 type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet' | 'width' | 'height'> & {
+  /** Base path without size or extension, e.g. '/images/projects/gba/01' (see src/lib/images.ts). */
   src: string;
   /** Above-the-fold image: load eagerly with high priority. */
   priority?: boolean;
 };
 
 export default function Img({ src, alt, sizes: sizesAttr = '100vw', priority = false, ...rest }: Props) {
-  const dim = sizes[src];
+  const dim = imageInfo[src];
   if (import.meta.env.DEV && !dim) console.warn(`[Img] not in image-manifest.json (run npm run images): ${src}`);
   return (
     <img
