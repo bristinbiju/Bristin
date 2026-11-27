@@ -6,7 +6,7 @@
  * description, canonical, hreflang alternates and Open Graph / Twitter tags
  * already in place, so crawlers and link previews never need JavaScript:
  *   dist/index.html               /                 (English, default)
- *   dist/work/<slug>.html         /work/<slug>      (served by vercel.json "cleanUrls")
+ *   dist/work/<slug>.html         /work/<slug>      (vercel.json rewrites /work/:slug -> .html)
  *   dist/fr/index.html            /fr               (French)
  *   dist/fr/work/<slug>.html      /fr/work/<slug>
  *   dist/404.html                 any unknown URL (Vercel serves it with status 404)

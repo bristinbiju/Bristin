@@ -1,8 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    { "source": "/fr", "destination": "/fr/index.html" },
+    { "source": "/work/:slug", "destination": "/work/:slug.html" },
+    { "source": "/fr/work/:slug", "destination": "/fr/work/:slug.html" }
+  ],
   "headers": [
     {
       "source": "/(assets|images|og)/(.*)",

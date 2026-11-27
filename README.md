@@ -135,9 +135,10 @@ git grep -n "TODO(" src/data
 
 ## Deploy (Vercel)
 
-`vercel.json` serves each pre-rendered page by its clean URL (`/work/gba` →
-`work/gba.html`), rewrites any other path to the app, and caches images, share images
-and hashed assets for a year. Push to the deployed branch and Vercel runs
+`vercel.json` rewrites clean URLs to the pre-rendered pages (`/work/gba` →
+`work/gba.html`, `/fr` → `fr/index.html`); any other unknown path gets the styled
+`404.html`. Other `.html` files (like the Google Search Console verification file)
+are served as-is. Images, share images and hashed assets are cached for a year. Push to the deployed branch and Vercel runs
 `npm run build`.
 
 ## Notes
