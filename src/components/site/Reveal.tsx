@@ -44,7 +44,10 @@ export default function Reveal({
           io.disconnect();
         }
       },
-      { rootMargin: '0px 0px -10% 0px' },
+      // No negative margin: anything inside the viewport counts. (A -10% bottom
+      // margin left the last section hidden for renderers like Google's, which
+      // stretch the viewport to the full page height.)
+      { rootMargin: '0px' },
     );
     io.observe(el);
     return () => {
