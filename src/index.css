@@ -80,8 +80,33 @@
 }
 
 @layer base {
+  /* The site is designed dark. Declaring it stops browsers (auto dark mode,
+     in-app browsers, light-mode defaults) from re-colouring the page, and makes
+     everything the browser draws itself (canvas, overscroll, scrollbars, form
+     controls, autofill) dark too. */
+  :root {
+    color-scheme: dark;
+  }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Light sections (Process, Outcome, logo plates) are light on purpose. */
+  .bg-paper {
+    color-scheme: light;
+  }
+
+  /* Autofilled form fields: keep our colours instead of the browser's
+     light-blue/yellow fill (which can leave light text on a light field). */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-fg);
+    caret-color: var(--color-fg);
+    box-shadow: 0 0 0 1000px var(--color-surface) inset;
+    transition: background-color 9999s ease-out 0s;
   }
   html,
   body,
@@ -104,6 +129,17 @@
   /* Anchor offset so nav doesn't clip section headings */
   section[id] {
     scroll-margin-top: 72px; /* 64px sticky header + breathing room */
+  }
+}
+
+/* Windows contrast themes / forced colours: the browser replaces our colours
+   with the user's system colours; give pill buttons and tags an outline so
+   they stay visible as shapes. */
+@media (forced-colors: active) {
+  a.rounded-full,
+  button.rounded-full,
+  li.rounded-full {
+    border: 1px solid currentColor;
   }
 }
 
